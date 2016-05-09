@@ -1,0 +1,7 @@
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/RongCloudIMLib/Rong_Cloud_iOS_IMLib_SDK_v2_5_0_stable"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/RongCloudIMLib"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/RongCloudIMLib/Rong_Cloud_iOS_IMLib_SDK_v2_5_0_stable"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/RongCloudIMLib"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"c++" -l"c++abi" -l"opencore-amrnb" -l"sqlite3" -l"stdc++" -l"xml2" -l"z" -framework "AVFoundation" -framework "AssetsLibrary" -framework "AudioToolbox" -framework "CFNetwork" -framework "CoreAudio" -framework "CoreGraphics" -framework "CoreLocation" -framework "CoreMedia" -framework "CoreTelephony" -framework "CoreVideo" -framework "ImageIO" -framework "MapKit" -framework "OpenGLES" -framework "QuartzCore" -framework "RongIMLib" -framework "SystemConfiguration" -framework "UIKit"
+PODS_ROOT = ${SRCROOT}/Pods

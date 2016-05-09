@@ -1,0 +1,554 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		53F28EDC75906CA0F2C93189 /* libPods-RCloudDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70063CB1300E4D73F0EB2418 /* libPods-RCloudDemo.a */; };
+		574757001CE07D9100D481AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 574756FF1CE07D9100D481AD /* main.m */; };
+		574757031CE07D9100D481AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 574757021CE07D9100D481AD /* AppDelegate.m */; };
+		574757061CE07D9100D481AD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 574757051CE07D9100D481AD /* ViewController.m */; };
+		574757091CE07D9100D481AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 574757071CE07D9100D481AD /* Main.storyboard */; };
+		5747570B1CE07D9100D481AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5747570A1CE07D9100D481AD /* Assets.xcassets */; };
+		5747570E1CE07D9100D481AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5747570C1CE07D9100D481AD /* LaunchScreen.storyboard */; };
+		574757191CE07D9100D481AD /* RCloudDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 574757181CE07D9100D481AD /* RCloudDemoTests.m */; };
+		62985D1267A1A3F561155E53 /* libPods-RCloudDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B07260C1CFD5446E977A480E /* libPods-RCloudDemoTests.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		574757151CE07D9100D481AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 574756F31CE07D9100D481AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 574756FA1CE07D9100D481AD;
+			remoteInfo = RCloudDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4F891544B99F04FA1E333A0A /* Pods-RCloudDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCloudDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RCloudDemo/Pods-RCloudDemo.release.xcconfig"; sourceTree = "<group>"; };
+		574756FB1CE07D9100D481AD /* RCloudDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RCloudDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		574756FF1CE07D9100D481AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		574757011CE07D9100D481AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		574757021CE07D9100D481AD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		574757041CE07D9100D481AD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		574757051CE07D9100D481AD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		574757081CE07D9100D481AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5747570A1CE07D9100D481AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5747570D1CE07D9100D481AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5747570F1CE07D9100D481AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		574757141CE07D9100D481AD /* RCloudDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RCloudDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		574757181CE07D9100D481AD /* RCloudDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCloudDemoTests.m; sourceTree = "<group>"; };
+		5747571A1CE07D9100D481AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70063CB1300E4D73F0EB2418 /* libPods-RCloudDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RCloudDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8084B75D51295079EB3C147E /* Pods-RCloudDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCloudDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RCloudDemoTests/Pods-RCloudDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B07260C1CFD5446E977A480E /* libPods-RCloudDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RCloudDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0FC7B10A8F86BBCAA0C9F95 /* Pods-RCloudDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCloudDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RCloudDemoTests/Pods-RCloudDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		FF4D271E9A409F270FC73167 /* Pods-RCloudDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCloudDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RCloudDemo/Pods-RCloudDemo.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		574756F81CE07D9100D481AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53F28EDC75906CA0F2C93189 /* libPods-RCloudDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		574757111CE07D9100D481AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62985D1267A1A3F561155E53 /* libPods-RCloudDemoTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		574756F21CE07D9100D481AD = {
+			isa = PBXGroup;
+			children = (
+				574756FD1CE07D9100D481AD /* RCloudDemo */,
+				574757171CE07D9100D481AD /* RCloudDemoTests */,
+				574756FC1CE07D9100D481AD /* Products */,
+				C5FA605EC41B9DE7DAE8704B /* Pods */,
+				FFCD4757ED939E997E026EA4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		574756FC1CE07D9100D481AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				574756FB1CE07D9100D481AD /* RCloudDemo.app */,
+				574757141CE07D9100D481AD /* RCloudDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		574756FD1CE07D9100D481AD /* RCloudDemo */ = {
+			isa = PBXGroup;
+			children = (
+				574757011CE07D9100D481AD /* AppDelegate.h */,
+				574757021CE07D9100D481AD /* AppDelegate.m */,
+				574757041CE07D9100D481AD /* ViewController.h */,
+				574757051CE07D9100D481AD /* ViewController.m */,
+				574757071CE07D9100D481AD /* Main.storyboard */,
+				5747570A1CE07D9100D481AD /* Assets.xcassets */,
+				5747570C1CE07D9100D481AD /* LaunchScreen.storyboard */,
+				5747570F1CE07D9100D481AD /* Info.plist */,
+				574756FE1CE07D9100D481AD /* Supporting Files */,
+			);
+			path = RCloudDemo;
+			sourceTree = "<group>";
+		};
+		574756FE1CE07D9100D481AD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				574756FF1CE07D9100D481AD /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		574757171CE07D9100D481AD /* RCloudDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				574757181CE07D9100D481AD /* RCloudDemoTests.m */,
+				5747571A1CE07D9100D481AD /* Info.plist */,
+			);
+			path = RCloudDemoTests;
+			sourceTree = "<group>";
+		};
+		C5FA605EC41B9DE7DAE8704B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FF4D271E9A409F270FC73167 /* Pods-RCloudDemo.debug.xcconfig */,
+				4F891544B99F04FA1E333A0A /* Pods-RCloudDemo.release.xcconfig */,
+				8084B75D51295079EB3C147E /* Pods-RCloudDemoTests.debug.xcconfig */,
+				E0FC7B10A8F86BBCAA0C9F95 /* Pods-RCloudDemoTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FFCD4757ED939E997E026EA4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				70063CB1300E4D73F0EB2418 /* libPods-RCloudDemo.a */,
+				B07260C1CFD5446E977A480E /* libPods-RCloudDemoTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		574756FA1CE07D9100D481AD /* RCloudDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5747571D1CE07D9100D481AD /* Build configuration list for PBXNativeTarget "RCloudDemo" */;
+			buildPhases = (
+				088317E40764A42489B99FB5 /* 📦 Check Pods Manifest.lock */,
+				574756F71CE07D9100D481AD /* Sources */,
+				574756F81CE07D9100D481AD /* Frameworks */,
+				574756F91CE07D9100D481AD /* Resources */,
+				E44B27CC734B6C64B37B12DD /* 📦 Embed Pods Frameworks */,
+				A12D6CA89FAA354F8234AA8A /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RCloudDemo;
+			productName = RCloudDemo;
+			productReference = 574756FB1CE07D9100D481AD /* RCloudDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		574757131CE07D9100D481AD /* RCloudDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 574757201CE07D9100D481AD /* Build configuration list for PBXNativeTarget "RCloudDemoTests" */;
+			buildPhases = (
+				0D19AE20156B2EE566187A28 /* 📦 Check Pods Manifest.lock */,
+				574757101CE07D9100D481AD /* Sources */,
+				574757111CE07D9100D481AD /* Frameworks */,
+				574757121CE07D9100D481AD /* Resources */,
+				B50212411543808896257AE2 /* 📦 Embed Pods Frameworks */,
+				C153739DAF8CAEF55A1096CF /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				574757161CE07D9100D481AD /* PBXTargetDependency */,
+			);
+			name = RCloudDemoTests;
+			productName = RCloudDemoTests;
+			productReference = 574757141CE07D9100D481AD /* RCloudDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		574756F31CE07D9100D481AD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Robert;
+				TargetAttributes = {
+					574756FA1CE07D9100D481AD = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					574757131CE07D9100D481AD = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 574756FA1CE07D9100D481AD;
+					};
+				};
+			};
+			buildConfigurationList = 574756F61CE07D9100D481AD /* Build configuration list for PBXProject "RCloudDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 574756F21CE07D9100D481AD;
+			productRefGroup = 574756FC1CE07D9100D481AD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				574756FA1CE07D9100D481AD /* RCloudDemo */,
+				574757131CE07D9100D481AD /* RCloudDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		574756F91CE07D9100D481AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5747570E1CE07D9100D481AD /* LaunchScreen.storyboard in Resources */,
+				5747570B1CE07D9100D481AD /* Assets.xcassets in Resources */,
+				574757091CE07D9100D481AD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		574757121CE07D9100D481AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		088317E40764A42489B99FB5 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		0D19AE20156B2EE566187A28 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A12D6CA89FAA354F8234AA8A /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RCloudDemo/Pods-RCloudDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B50212411543808896257AE2 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RCloudDemoTests/Pods-RCloudDemoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C153739DAF8CAEF55A1096CF /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RCloudDemoTests/Pods-RCloudDemoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E44B27CC734B6C64B37B12DD /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RCloudDemo/Pods-RCloudDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		574756F71CE07D9100D481AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				574757061CE07D9100D481AD /* ViewController.m in Sources */,
+				574757031CE07D9100D481AD /* AppDelegate.m in Sources */,
+				574757001CE07D9100D481AD /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		574757101CE07D9100D481AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				574757191CE07D9100D481AD /* RCloudDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		574757161CE07D9100D481AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 574756FA1CE07D9100D481AD /* RCloudDemo */;
+			targetProxy = 574757151CE07D9100D481AD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		574757071CE07D9100D481AD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				574757081CE07D9100D481AD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5747570C1CE07D9100D481AD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5747570D1CE07D9100D481AD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5747571B1CE07D9100D481AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5747571C1CE07D9100D481AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5747571E1CE07D9100D481AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF4D271E9A409F270FC73167 /* Pods-RCloudDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RCloudDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Robert.RCloudDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5747571F1CE07D9100D481AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F891544B99F04FA1E333A0A /* Pods-RCloudDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RCloudDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Robert.RCloudDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		574757211CE07D9100D481AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8084B75D51295079EB3C147E /* Pods-RCloudDemoTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = RCloudDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Robert.RCloudDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RCloudDemo.app/RCloudDemo";
+			};
+			name = Debug;
+		};
+		574757221CE07D9100D481AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0FC7B10A8F86BBCAA0C9F95 /* Pods-RCloudDemoTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = RCloudDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Robert.RCloudDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RCloudDemo.app/RCloudDemo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		574756F61CE07D9100D481AD /* Build configuration list for PBXProject "RCloudDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5747571B1CE07D9100D481AD /* Debug */,
+				5747571C1CE07D9100D481AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5747571D1CE07D9100D481AD /* Build configuration list for PBXNativeTarget "RCloudDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5747571E1CE07D9100D481AD /* Debug */,
+				5747571F1CE07D9100D481AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		574757201CE07D9100D481AD /* Build configuration list for PBXNativeTarget "RCloudDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				574757211CE07D9100D481AD /* Debug */,
+				574757221CE07D9100D481AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 574756F31CE07D9100D481AD /* Project object */;
+}
