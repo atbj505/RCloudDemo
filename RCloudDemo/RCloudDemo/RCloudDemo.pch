@@ -1,0 +1,17 @@
+//
+//  RCloudDemo.pch
+//  RCloudDemo
+//
+//  Created by Robert on 16/5/9.
+//  Copyright © 2016年 Robert. All rights reserved.
+//
+
+#ifndef RCloudDemo_pch
+#define RCloudDemo_pch
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <RongIMLib/RongIMLib.h>
+#import "IMService.h"
+
+#endif /* RCloudDemo_pch */

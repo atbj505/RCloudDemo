@@ -16,7 +16,17 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    [[RCIMClient sharedRCIMClient] initWithAppKey:@"c9kqb3rdkglbj"];
+    
+    [[RCIMClient sharedRCIMClient] connectWithToken:@"m9MuUWXvyVXb+/XJGkQFySmnGhOsS0WXtc36nE5wpSTKuXd2RIzD9HT3DF9k4us2kbwih5Q3g20AydC9r2rtUA==" success:^(NSString *userId) {
+        NSLog(@"success:%@", userId);
+    } error:^(RCConnectErrorCode status) {
+        NSLog(@"error:%d", status);
+    } tokenIncorrect:^{
+        NSLog(@"tokenIncorrect");
+    }];
+    
     return YES;
 }
 

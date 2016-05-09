@@ -14,7 +14,8 @@
 		574757091CE07D9100D481AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 574757071CE07D9100D481AD /* Main.storyboard */; };
 		5747570B1CE07D9100D481AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5747570A1CE07D9100D481AD /* Assets.xcassets */; };
 		5747570E1CE07D9100D481AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5747570C1CE07D9100D481AD /* LaunchScreen.storyboard */; };
-		574757191CE07D9100D481AD /* RCloudDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 574757181CE07D9100D481AD /* RCloudDemoTests.m */; };
+		574757191CE07D9100D481AD /* RCloudSendMessageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 574757181CE07D9100D481AD /* RCloudSendMessageTests.m */; };
+		574757261CE0875400D481AD /* IMService.m in Sources */ = {isa = PBXBuildFile; fileRef = 574757251CE0875400D481AD /* IMService.m */; };
 		62985D1267A1A3F561155E53 /* libPods-RCloudDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B07260C1CFD5446E977A480E /* libPods-RCloudDemoTests.a */; };
 /* End PBXBuildFile section */
 
@@ -41,8 +42,11 @@
 		5747570D1CE07D9100D481AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5747570F1CE07D9100D481AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		574757141CE07D9100D481AD /* RCloudDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RCloudDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		574757181CE07D9100D481AD /* RCloudDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCloudDemoTests.m; sourceTree = "<group>"; };
+		574757181CE07D9100D481AD /* RCloudSendMessageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCloudSendMessageTests.m; sourceTree = "<group>"; };
 		5747571A1CE07D9100D481AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		574757231CE0820F00D481AD /* RCloudDemo.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCloudDemo.pch; sourceTree = "<group>"; };
+		574757241CE0875400D481AD /* IMService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMService.h; sourceTree = "<group>"; };
+		574757251CE0875400D481AD /* IMService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMService.m; sourceTree = "<group>"; };
 		70063CB1300E4D73F0EB2418 /* libPods-RCloudDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RCloudDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8084B75D51295079EB3C147E /* Pods-RCloudDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCloudDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RCloudDemoTests/Pods-RCloudDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B07260C1CFD5446E977A480E /* libPods-RCloudDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RCloudDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +101,8 @@
 				574757021CE07D9100D481AD /* AppDelegate.m */,
 				574757041CE07D9100D481AD /* ViewController.h */,
 				574757051CE07D9100D481AD /* ViewController.m */,
+				574757241CE0875400D481AD /* IMService.h */,
+				574757251CE0875400D481AD /* IMService.m */,
 				574757071CE07D9100D481AD /* Main.storyboard */,
 				5747570A1CE07D9100D481AD /* Assets.xcassets */,
 				5747570C1CE07D9100D481AD /* LaunchScreen.storyboard */,
@@ -110,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				574756FF1CE07D9100D481AD /* main.m */,
+				574757231CE0820F00D481AD /* RCloudDemo.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -117,7 +124,7 @@
 		574757171CE07D9100D481AD /* RCloudDemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				574757181CE07D9100D481AD /* RCloudDemoTests.m */,
+				574757181CE07D9100D481AD /* RCloudSendMessageTests.m */,
 				5747571A1CE07D9100D481AD /* Info.plist */,
 			);
 			path = RCloudDemoTests;
@@ -343,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				574757061CE07D9100D481AD /* ViewController.m in Sources */,
+				574757261CE0875400D481AD /* IMService.m in Sources */,
 				574757031CE07D9100D481AD /* AppDelegate.m in Sources */,
 				574757001CE07D9100D481AD /* main.m in Sources */,
 			);
@@ -352,7 +360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				574757191CE07D9100D481AD /* RCloudDemoTests.m in Sources */,
+				574757191CE07D9100D481AD /* RCloudSendMessageTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +481,8 @@
 			baseConfigurationReference = FF4D271E9A409F270FC73167 /* Pods-RCloudDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREFIX_HEADER = RCloudDemo/RCloudDemo.pch;
 				INFOPLIST_FILE = RCloudDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Robert.RCloudDemo;
@@ -485,6 +495,8 @@
 			baseConfigurationReference = 4F891544B99F04FA1E333A0A /* Pods-RCloudDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREFIX_HEADER = RCloudDemo/RCloudDemo.pch;
 				INFOPLIST_FILE = RCloudDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Robert.RCloudDemo;
@@ -497,6 +509,7 @@
 			baseConfigurationReference = 8084B75D51295079EB3C147E /* Pods-RCloudDemoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				GCC_PREFIX_HEADER = RCloudDemo/RCloudDemo.pch;
 				INFOPLIST_FILE = RCloudDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Robert.RCloudDemoTests;
@@ -510,6 +523,7 @@
 			baseConfigurationReference = E0FC7B10A8F86BBCAA0C9F95 /* Pods-RCloudDemoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				GCC_PREFIX_HEADER = RCloudDemo/RCloudDemo.pch;
 				INFOPLIST_FILE = RCloudDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Robert.RCloudDemoTests;

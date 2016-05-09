@@ -1,12 +1,15 @@
 PODS:
+  - Expecta (1.0.5)
   - RongCloudIMLib (2.5.0)
 
 DEPENDENCIES:
+  - Expecta
   - RongCloudIMLib
 
 SPEC CHECKSUMS:
+  Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
   RongCloudIMLib: 9934b9baf3e35dcaf2254a6b1e617af0eec065da
 
-PODFILE CHECKSUM: e4e94c69d2f4666ffd29b33da824c3506a764c77
+PODFILE CHECKSUM: 4eab75e63326c4ccaa340c429a23166f85a5fad6
 
 COCOAPODS: 1.0.0.beta.8
