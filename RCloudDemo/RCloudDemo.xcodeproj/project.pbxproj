@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		53F28EDC75906CA0F2C93189 /* libPods-RCloudDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70063CB1300E4D73F0EB2418 /* libPods-RCloudDemo.a */; };
+		572FC8BC1CE18B7200C9BCAC /* IMService+Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 572FC8BB1CE18B7200C9BCAC /* IMService+Conversation.m */; };
 		574757001CE07D9100D481AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 574756FF1CE07D9100D481AD /* main.m */; };
 		574757031CE07D9100D481AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 574757021CE07D9100D481AD /* AppDelegate.m */; };
 		574757061CE07D9100D481AD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 574757051CE07D9100D481AD /* ViewController.m */; };
@@ -16,6 +17,9 @@
 		5747570E1CE07D9100D481AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5747570C1CE07D9100D481AD /* LaunchScreen.storyboard */; };
 		574757191CE07D9100D481AD /* RCloudSendMessageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 574757181CE07D9100D481AD /* RCloudSendMessageTests.m */; };
 		574757261CE0875400D481AD /* IMService.m in Sources */ = {isa = PBXBuildFile; fileRef = 574757251CE0875400D481AD /* IMService.m */; };
+		574757291CE16D6400D481AD /* IMService+SendMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 574757281CE16D6400D481AD /* IMService+SendMessage.m */; };
+		5747572C1CE178FA00D481AD /* IMService+Record.m in Sources */ = {isa = PBXBuildFile; fileRef = 5747572B1CE178FA00D481AD /* IMService+Record.m */; };
+		574757301CE1889600D481AD /* IMService+UnreadCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 5747572F1CE1889600D481AD /* IMService+UnreadCount.m */; };
 		62985D1267A1A3F561155E53 /* libPods-RCloudDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B07260C1CFD5446E977A480E /* libPods-RCloudDemoTests.a */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		4F891544B99F04FA1E333A0A /* Pods-RCloudDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCloudDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RCloudDemo/Pods-RCloudDemo.release.xcconfig"; sourceTree = "<group>"; };
+		572FC8BA1CE18B7200C9BCAC /* IMService+Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IMService+Conversation.h"; sourceTree = "<group>"; };
+		572FC8BB1CE18B7200C9BCAC /* IMService+Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IMService+Conversation.m"; sourceTree = "<group>"; };
 		574756FB1CE07D9100D481AD /* RCloudDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RCloudDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		574756FF1CE07D9100D481AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		574757011CE07D9100D481AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -47,6 +53,12 @@
 		574757231CE0820F00D481AD /* RCloudDemo.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCloudDemo.pch; sourceTree = "<group>"; };
 		574757241CE0875400D481AD /* IMService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMService.h; sourceTree = "<group>"; };
 		574757251CE0875400D481AD /* IMService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMService.m; sourceTree = "<group>"; };
+		574757271CE16D6400D481AD /* IMService+SendMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IMService+SendMessage.h"; sourceTree = "<group>"; };
+		574757281CE16D6400D481AD /* IMService+SendMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IMService+SendMessage.m"; sourceTree = "<group>"; };
+		5747572A1CE178FA00D481AD /* IMService+Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IMService+Record.h"; sourceTree = "<group>"; };
+		5747572B1CE178FA00D481AD /* IMService+Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IMService+Record.m"; sourceTree = "<group>"; };
+		5747572E1CE1889600D481AD /* IMService+UnreadCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IMService+UnreadCount.h"; sourceTree = "<group>"; };
+		5747572F1CE1889600D481AD /* IMService+UnreadCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IMService+UnreadCount.m"; sourceTree = "<group>"; };
 		70063CB1300E4D73F0EB2418 /* libPods-RCloudDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RCloudDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8084B75D51295079EB3C147E /* Pods-RCloudDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCloudDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RCloudDemoTests/Pods-RCloudDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B07260C1CFD5446E977A480E /* libPods-RCloudDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RCloudDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,8 +113,7 @@
 				574757021CE07D9100D481AD /* AppDelegate.m */,
 				574757041CE07D9100D481AD /* ViewController.h */,
 				574757051CE07D9100D481AD /* ViewController.m */,
-				574757241CE0875400D481AD /* IMService.h */,
-				574757251CE0875400D481AD /* IMService.m */,
+				5747572D1CE178FF00D481AD /* IMService */,
 				574757071CE07D9100D481AD /* Main.storyboard */,
 				5747570A1CE07D9100D481AD /* Assets.xcassets */,
 				5747570C1CE07D9100D481AD /* LaunchScreen.storyboard */,
@@ -128,6 +139,23 @@
 				5747571A1CE07D9100D481AD /* Info.plist */,
 			);
 			path = RCloudDemoTests;
+			sourceTree = "<group>";
+		};
+		5747572D1CE178FF00D481AD /* IMService */ = {
+			isa = PBXGroup;
+			children = (
+				574757241CE0875400D481AD /* IMService.h */,
+				574757251CE0875400D481AD /* IMService.m */,
+				574757271CE16D6400D481AD /* IMService+SendMessage.h */,
+				574757281CE16D6400D481AD /* IMService+SendMessage.m */,
+				5747572A1CE178FA00D481AD /* IMService+Record.h */,
+				5747572B1CE178FA00D481AD /* IMService+Record.m */,
+				5747572E1CE1889600D481AD /* IMService+UnreadCount.h */,
+				5747572F1CE1889600D481AD /* IMService+UnreadCount.m */,
+				572FC8BA1CE18B7200C9BCAC /* IMService+Conversation.h */,
+				572FC8BB1CE18B7200C9BCAC /* IMService+Conversation.m */,
+			);
+			name = IMService;
 			sourceTree = "<group>";
 		};
 		C5FA605EC41B9DE7DAE8704B /* Pods */ = {
@@ -349,10 +377,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				572FC8BC1CE18B7200C9BCAC /* IMService+Conversation.m in Sources */,
 				574757061CE07D9100D481AD /* ViewController.m in Sources */,
 				574757261CE0875400D481AD /* IMService.m in Sources */,
+				574757301CE1889600D481AD /* IMService+UnreadCount.m in Sources */,
 				574757031CE07D9100D481AD /* AppDelegate.m in Sources */,
 				574757001CE07D9100D481AD /* main.m in Sources */,
+				5747572C1CE178FA00D481AD /* IMService+Record.m in Sources */,
+				574757291CE16D6400D481AD /* IMService+SendMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

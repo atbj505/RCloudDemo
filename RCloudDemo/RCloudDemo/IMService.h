@@ -8,16 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^sendSuccessBlock)(long messageId);
-typedef void (^sendFailBlock)(RCErrorCode errorcode, long messageId);
-
 @interface IMService : NSObject <RCIMClientReceiveMessageDelegate>
 
+/**
+ *  单例方法
+ *
+ *  @return 单例对象
+ */
 + (instancetype)sharedIMService;
 
-- (void)sendMessageUserId:(NSString *)userId
-                  content:(NSString *)content
-                  success:(sendSuccessBlock)successBlock
-                     fail:(sendFailBlock)failBlock;
+/**
+ *  链接融云服务器
+ *
+ *  @param token 令牌
+ */
+- (void)connectWithToken:(NSString *)token;
 
 @end

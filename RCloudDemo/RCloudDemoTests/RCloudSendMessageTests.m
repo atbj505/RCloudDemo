@@ -27,7 +27,7 @@
 - (void)testSendMessage {
     XCTestExpectation *expectation = [self expectationWithDescription:@"sendTextMessage"];
     
-    [[IMService sharedIMService] sendMessageUserId:@"080904" content:@"test"success:^(long messageId) {
+    [[IMService sharedIMService] sendTextUserId:@"080904" content:@"test"success:^(long messageId) {
         XCTAssertGreaterThanOrEqual(messageId, 0, @"send fail");
         [expectation fulfill];
     } fail:^(RCErrorCode errorcode, long messageId) {

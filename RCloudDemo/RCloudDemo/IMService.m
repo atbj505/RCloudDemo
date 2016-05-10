@@ -8,6 +8,8 @@
 
 #import "IMService.h"
 
+static NSString * const RCIMAPPTOKEN = @"c9kqb3rdkglbj";
+
 @implementation IMService
 
 + (instancetype)sharedIMService {
@@ -24,30 +26,19 @@
 - (instancetype)init {
     if (self = [super init]) {
         [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self object:nil];
+        [[RCIMClient sharedRCIMClient] initWithAppKey:@"c9kqb3rdkglbj"];
     }
     return self;
 }
 
-- (void)sendMessageUserId:(NSString *)userId
-                   content:(NSString *)content
-                   success:(sendSuccessBlock)successBlock
-                      fail:(sendFailBlock)failBlock {
-    RCTextMessage *testMessage = [RCTextMessage messageWithContent:content];
-    
-    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE
-                                      targetId:userId
-                                       content:testMessage
-                                   pushContent:nil
-                                      pushData:nil
-                                       success:^(long messageId) {
-                                           if (successBlock) {
-                                               successBlock(messageId);
-                                           }
-                                       } error:^(RCErrorCode nErrorCode, long messageId) {
-                                           if (failBlock) {
-                                               failBlock(nErrorCode, messageId);
-                                           }
-                                       }];
+- (void)connectWithToken:(NSString *)token {
+    [[RCIMClient sharedRCIMClient] connectWithToken:token success:^(NSString *userId) {
+        NSLog(@"success:%@", userId);
+    } error:^(RCConnectErrorCode status) {
+        NSLog(@"error:%d", status);
+    } tokenIncorrect:^{
+        NSLog(@"tokenIncorrect");
+    }];
 }
 
 #pragma mark RCIMClientReceiveMessageDelegate
