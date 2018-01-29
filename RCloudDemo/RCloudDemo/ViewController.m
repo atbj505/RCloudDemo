@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "IMService+SendMessage.h"
+#import "IMService+Conversation.h"
 
 @interface ViewController ()
 
@@ -17,6 +19,5 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
-
 
 @end

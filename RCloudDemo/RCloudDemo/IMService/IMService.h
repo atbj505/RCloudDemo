@@ -17,11 +17,4 @@
  */
 + (instancetype)sharedIMService;
 
-/**
- *  链接融云服务器
- *
- *  @param token 令牌
- */
-- (void)connectWithToken:(NSString *)token;
-
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "IMService+Connect.h"
 
 @interface AppDelegate ()
 

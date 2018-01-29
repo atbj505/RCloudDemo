@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		53F28EDC75906CA0F2C93189 /* libPods-RCloudDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70063CB1300E4D73F0EB2418 /* libPods-RCloudDemo.a */; };
 		572FC8BC1CE18B7200C9BCAC /* IMService+Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 572FC8BB1CE18B7200C9BCAC /* IMService+Conversation.m */; };
+		57382731201F14BF00071D53 /* IMService+Connect.m in Sources */ = {isa = PBXBuildFile; fileRef = 57382730201F14BF00071D53 /* IMService+Connect.m */; };
+		57382734201F15C100071D53 /* IMService+Receive.m in Sources */ = {isa = PBXBuildFile; fileRef = 57382733201F15C100071D53 /* IMService+Receive.m */; };
 		574757001CE07D9100D481AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 574756FF1CE07D9100D481AD /* main.m */; };
 		574757031CE07D9100D481AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 574757021CE07D9100D481AD /* AppDelegate.m */; };
 		574757061CE07D9100D481AD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 574757051CE07D9100D481AD /* ViewController.m */; };
@@ -37,6 +39,10 @@
 		4F891544B99F04FA1E333A0A /* Pods-RCloudDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCloudDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RCloudDemo/Pods-RCloudDemo.release.xcconfig"; sourceTree = "<group>"; };
 		572FC8BA1CE18B7200C9BCAC /* IMService+Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IMService+Conversation.h"; sourceTree = "<group>"; };
 		572FC8BB1CE18B7200C9BCAC /* IMService+Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IMService+Conversation.m"; sourceTree = "<group>"; };
+		5738272F201F14BF00071D53 /* IMService+Connect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IMService+Connect.h"; sourceTree = "<group>"; };
+		57382730201F14BF00071D53 /* IMService+Connect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "IMService+Connect.m"; sourceTree = "<group>"; };
+		57382732201F15C100071D53 /* IMService+Receive.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IMService+Receive.h"; sourceTree = "<group>"; };
+		57382733201F15C100071D53 /* IMService+Receive.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "IMService+Receive.m"; sourceTree = "<group>"; };
 		574756FB1CE07D9100D481AD /* RCloudDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RCloudDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		574756FF1CE07D9100D481AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		574757011CE07D9100D481AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -146,6 +152,10 @@
 			children = (
 				574757241CE0875400D481AD /* IMService.h */,
 				574757251CE0875400D481AD /* IMService.m */,
+				5738272F201F14BF00071D53 /* IMService+Connect.h */,
+				57382730201F14BF00071D53 /* IMService+Connect.m */,
+				57382732201F15C100071D53 /* IMService+Receive.h */,
+				57382733201F15C100071D53 /* IMService+Receive.m */,
 				572FC8BA1CE18B7200C9BCAC /* IMService+Conversation.h */,
 				572FC8BB1CE18B7200C9BCAC /* IMService+Conversation.m */,
 				5747572A1CE178FA00D481AD /* IMService+Record.h */,
@@ -185,12 +195,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5747571D1CE07D9100D481AD /* Build configuration list for PBXNativeTarget "RCloudDemo" */;
 			buildPhases = (
-				088317E40764A42489B99FB5 /* 📦 Check Pods Manifest.lock */,
+				088317E40764A42489B99FB5 /* [CP] Check Pods Manifest.lock */,
 				574756F71CE07D9100D481AD /* Sources */,
 				574756F81CE07D9100D481AD /* Frameworks */,
 				574756F91CE07D9100D481AD /* Resources */,
-				E44B27CC734B6C64B37B12DD /* 📦 Embed Pods Frameworks */,
-				A12D6CA89FAA354F8234AA8A /* 📦 Copy Pods Resources */,
+				E44B27CC734B6C64B37B12DD /* [CP] Embed Pods Frameworks */,
+				A12D6CA89FAA354F8234AA8A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -205,12 +215,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 574757201CE07D9100D481AD /* Build configuration list for PBXNativeTarget "RCloudDemoTests" */;
 			buildPhases = (
-				0D19AE20156B2EE566187A28 /* 📦 Check Pods Manifest.lock */,
+				0D19AE20156B2EE566187A28 /* [CP] Check Pods Manifest.lock */,
 				574757101CE07D9100D481AD /* Sources */,
 				574757111CE07D9100D481AD /* Frameworks */,
 				574757121CE07D9100D481AD /* Resources */,
-				B50212411543808896257AE2 /* 📦 Embed Pods Frameworks */,
-				C153739DAF8CAEF55A1096CF /* 📦 Copy Pods Resources */,
+				B50212411543808896257AE2 /* [CP] Embed Pods Frameworks */,
+				C153739DAF8CAEF55A1096CF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -280,59 +290,72 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		088317E40764A42489B99FB5 /* 📦 Check Pods Manifest.lock */ = {
+		088317E40764A42489B99FB5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RCloudDemo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		0D19AE20156B2EE566187A28 /* 📦 Check Pods Manifest.lock */ = {
+		0D19AE20156B2EE566187A28 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RCloudDemoTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A12D6CA89FAA354F8234AA8A /* 📦 Copy Pods Resources */ = {
+		A12D6CA89FAA354F8234AA8A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RCloudDemo/Pods-RCloudDemo-resources.sh",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RongCloud.bundle",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/en.lproj",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/zh-Hans.lproj",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/Emoji.plist",
+				"${PODS_ROOT}/RongCloudIM/RongCloudIM/RCConfig.plist",
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RCloudDemo/Pods-RCloudDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B50212411543808896257AE2 /* 📦 Embed Pods Frameworks */ = {
+		B50212411543808896257AE2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,14 +363,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RCloudDemoTests/Pods-RCloudDemoTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C153739DAF8CAEF55A1096CF /* 📦 Copy Pods Resources */ = {
+		C153739DAF8CAEF55A1096CF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,14 +378,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RCloudDemoTests/Pods-RCloudDemoTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E44B27CC734B6C64B37B12DD /* 📦 Embed Pods Frameworks */ = {
+		E44B27CC734B6C64B37B12DD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,8 +406,10 @@
 				574757301CE1889600D481AD /* IMService+UnreadCount.m in Sources */,
 				574757031CE07D9100D481AD /* AppDelegate.m in Sources */,
 				574757001CE07D9100D481AD /* main.m in Sources */,
+				57382731201F14BF00071D53 /* IMService+Connect.m in Sources */,
 				5747572C1CE178FA00D481AD /* IMService+Record.m in Sources */,
 				574757291CE16D6400D481AD /* IMService+SendMessage.m in Sources */,
+				57382734201F15C100071D53 /* IMService+Receive.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

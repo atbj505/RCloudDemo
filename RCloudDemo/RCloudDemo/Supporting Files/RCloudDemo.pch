@@ -13,6 +13,5 @@
 #import <Foundation/Foundation.h>
 #import <RongIMLib/RongIMLib.h>
 #import "IMService.h"
-#import "IMService+SendMessage.h"
 
 #endif /* RCloudDemo_pch */

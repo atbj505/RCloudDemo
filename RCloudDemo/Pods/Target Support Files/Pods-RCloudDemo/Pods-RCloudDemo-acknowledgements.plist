@@ -15,8 +15,10 @@
 		<dict>
 			<key>FooterText</key>
 			<string>Copyright 2014 Rong Cloud</string>
+			<key>License</key>
+			<string>Copyright</string>
 			<key>Title</key>
-			<string>RongCloudIMLib</string>
+			<string>RongCloudIM</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

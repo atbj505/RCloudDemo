@@ -14,44 +14,34 @@
                content:(NSString *)content
                success:(sendSuccessBlock)successBlock
                   fail:(sendFailBlock)failBlock {
-    RCTextMessage *testMessage = [RCTextMessage messageWithContent:content];
+    RCTextMessage *textMessage = [RCTextMessage messageWithContent:content];
     
-    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE
-                                      targetId:userId
-                                       content:testMessage
-                                   pushContent:nil
-                                      pushData:nil
-                                       success:^(long messageId) {
-                                           if (successBlock) {
-                                               successBlock(messageId);
-                                           }
-                                       } error:^(RCErrorCode nErrorCode, long messageId) {
-                                           if (failBlock) {
-                                               failBlock(nErrorCode, messageId);
-                                           }
-                                       }];
+    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE targetId:userId content:textMessage pushContent:nil pushData:nil success:^(long messageId) {
+        if (successBlock) {
+            successBlock(messageId);
+        }
+    } error:^(RCErrorCode nErrorCode, long messageId) {
+        if (failBlock) {
+            failBlock(nErrorCode, messageId);
+        }
+    }];
 }
 
 - (void)sendTextGroupId:(NSString *)groupId
                 content:(NSString *)content
                 success:(sendSuccessBlock)successBlock
                    fail:(sendFailBlock)failBlock {
-    RCTextMessage *testMessage = [RCTextMessage messageWithContent:content];
+    RCTextMessage *textMessage = [RCTextMessage messageWithContent:content];
     
-    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_GROUP
-                                      targetId:groupId
-                                       content:testMessage
-                                   pushContent:nil
-                                      pushData:nil
-                                       success:^(long messageId) {
-                                           if (successBlock) {
-                                               successBlock(messageId);
-                                           }
-                                       } error:^(RCErrorCode nErrorCode, long messageId) {
-                                           if (failBlock) {
-                                               failBlock(nErrorCode, messageId);
-                                           }
-                                       }];
+    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_GROUP targetId:groupId content:textMessage pushContent:nil pushData:nil success:^(long messageId) {
+        if (successBlock) {
+            successBlock(messageId);
+        }
+    } error:^(RCErrorCode nErrorCode, long messageId) {
+        if (failBlock) {
+            failBlock(nErrorCode, messageId);
+        }
+    }];
 }
 
 - (void)sendImageUserId:(NSString *)userId
@@ -61,24 +51,21 @@
                    fail:(sendFailBlock)failBlock {
     RCImageMessage *imageMessage = [RCImageMessage messageWithImage:image];
     
-    [[RCIMClient sharedRCIMClient] sendImageMessage:ConversationType_PRIVATE
-                                           targetId:userId
-                                            content:imageMessage
-                                        pushContent:nil
-                                           pushData:nil
-                                           progress:^(int progress, long messageId) {
-                                               if (progressBlock) {
-                                                   progressBlock(progress, messageId);
-                                               }
-                                           } success:^(long messageId) {
-                                               if (successBlock) {
-                                                   successBlock(messageId);
-                                               }
-                                           } error:^(RCErrorCode errorCode, long messageId) {
-                                               if (failBlock) {
-                                                   failBlock(errorCode, messageId);
-                                               }
-                                           }];
+    [[RCIMClient sharedRCIMClient] sendMediaMessage:ConversationType_PRIVATE targetId:userId content:imageMessage pushContent:nil pushData:nil progress:^(int progress, long messageId) {
+        if (progressBlock) {
+            progressBlock(progress, messageId);
+        }
+    } success:^(long messageId) {
+        if (successBlock) {
+            successBlock(messageId);
+        }
+    } error:^(RCErrorCode errorCode, long messageId) {
+        if (failBlock) {
+            failBlock(errorCode, messageId);
+        }
+    } cancel:^(long messageId) {
+        
+    }];
 }
 
 - (void)sendImageGroupId:(NSString *)groupId
@@ -88,24 +75,21 @@
                     fail:(sendFailBlock)failBlock {
     RCImageMessage *imageMessage = [RCImageMessage messageWithImage:image];
     
-    [[RCIMClient sharedRCIMClient] sendImageMessage:ConversationType_GROUP
-                                           targetId:groupId
-                                            content:imageMessage
-                                        pushContent:nil
-                                           pushData:nil
-                                           progress:^(int progress, long messageId) {
-                                               if (progressBlock) {
-                                                   progressBlock(progress, messageId);
-                                               }
-                                           } success:^(long messageId) {
-                                               if (successBlock) {
-                                                   successBlock(messageId);
-                                               }
-                                           } error:^(RCErrorCode errorCode, long messageId) {
-                                               if (failBlock) {
-                                                   failBlock(errorCode, messageId);
-                                               }
-                                           }];
+    [[RCIMClient sharedRCIMClient] sendMediaMessage:ConversationType_GROUP targetId:groupId content:imageMessage pushContent:nil pushData:nil progress:^(int progress, long messageId) {
+        if (progressBlock) {
+            progressBlock(progress, messageId);
+        }
+    } success:^(long messageId) {
+        if (successBlock) {
+            successBlock(messageId);
+        }
+    } error:^(RCErrorCode errorCode, long messageId) {
+        if (failBlock) {
+            failBlock(errorCode, messageId);
+        }
+    } cancel:^(long messageId) {
+        
+    }];
 }
 
 - (void)sendImageUserId:(NSString *)userId
@@ -115,20 +99,23 @@
                    fail:(sendFailBlock)failBlock {
     RCImageMessage *imageMessage = [RCImageMessage messageWithImageURI:imageUrl];
     
-    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE
-                                      targetId:userId
-                                       content:imageMessage
-                                   pushContent:nil
-                                      pushData:nil
-                                       success:^(long messageId) {
-                                           if (successBlock) {
-                                               successBlock(messageId);
-                                           }
-                                       } error:^(RCErrorCode nErrorCode, long messageId) {
-                                           if (failBlock) {
-                                               failBlock(nErrorCode, messageId);
-                                           }
-                                       }];
+    [[RCIMClient sharedRCIMClient] sendMediaMessage:ConversationType_PRIVATE targetId:userId content:imageMessage pushContent:nil pushData:nil uploadPrepare:^(RCUploadMediaStatusListener *uploadListener) {
+        
+    } progress:^(int progress, long messageId) {
+        if (progressBlock) {
+            progressBlock(progress, messageId);
+        }
+    } success:^(long messageId) {
+        if (successBlock) {
+            successBlock(messageId);
+        }
+    } error:^(RCErrorCode errorCode, long messageId) {
+        if (failBlock) {
+            failBlock(errorCode, messageId);
+        }
+    } cancel:^(long messageId) {
+        
+    }];
 }
 
 - (void)sendImageGroupId:(NSString *)groupId
@@ -138,20 +125,23 @@
                     fail:(sendFailBlock)failBlock {
     RCImageMessage *imageMessage = [RCImageMessage messageWithImageURI:imageUrl];
     
-    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_GROUP
-                                      targetId:groupId
-                                       content:imageMessage
-                                   pushContent:nil
-                                      pushData:nil
-                                       success:^(long messageId) {
-                                           if (successBlock) {
-                                               successBlock(messageId);
-                                           }
-                                       } error:^(RCErrorCode nErrorCode, long messageId) {
-                                           if (failBlock) {
-                                               failBlock(nErrorCode, messageId);
-                                           }
-                                       }];
+    [[RCIMClient sharedRCIMClient] sendMediaMessage:ConversationType_GROUP targetId:groupId content:imageMessage pushContent:nil pushData:nil uploadPrepare:^(RCUploadMediaStatusListener *uploadListener) {
+        
+    } progress:^(int progress, long messageId) {
+        if (progressBlock) {
+            progressBlock(progress, messageId);
+        }
+    } success:^(long messageId) {
+        if (successBlock) {
+            successBlock(messageId);
+        }
+    } error:^(RCErrorCode errorCode, long messageId) {
+        if (failBlock) {
+            failBlock(errorCode, messageId);
+        }
+    } cancel:^(long messageId) {
+        
+    }];
 }
 
 - (void)sendVoiceUserId:(NSString *)userId
@@ -163,20 +153,19 @@
     
     RCVoiceMessage *voiceMessage = [RCVoiceMessage messageWithAudio:data duration:duration];
     
-    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE
-                                      targetId:userId
-                                       content:voiceMessage
-                                   pushContent:nil
-                                      pushData:nil
-                                       success:^(long messageId) {
-                                           if (successBlock) {
-                                               successBlock(messageId);
-                                           }
-                                       } error:^(RCErrorCode nErrorCode, long messageId) {
-                                           if (failBlock) {
-                                               failBlock(nErrorCode, messageId);
-                                           }
-                                       }];
+    [[RCIMClient sharedRCIMClient] sendMediaMessage:ConversationType_PRIVATE targetId:userId content:voiceMessage pushContent:nil pushData:nil progress:^(int progress, long messageId) {
+        
+    } success:^(long messageId) {
+        if (successBlock) {
+            successBlock(messageId);
+        }
+    } error:^(RCErrorCode errorCode, long messageId) {
+        if (failBlock) {
+            failBlock(errorCode, messageId);
+        }
+    } cancel:^(long messageId) {
+        
+    }];
 }
 
 - (void)sendGroupVoiceGroupId:(NSString *)groupId
@@ -188,20 +177,19 @@
     
     RCVoiceMessage *voiceMessage = [RCVoiceMessage messageWithAudio:data duration:duration];
     
-    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_GROUP
-                                      targetId:groupId
-                                       content:voiceMessage
-                                   pushContent:nil
-                                      pushData:nil
-                                       success:^(long messageId) {
-                                           if (successBlock) {
-                                               successBlock(messageId);
-                                           }
-                                       } error:^(RCErrorCode nErrorCode, long messageId) {
-                                           if (failBlock) {
-                                               failBlock(nErrorCode, messageId);
-                                           }
-                                       }];
+    [[RCIMClient sharedRCIMClient] sendMediaMessage:ConversationType_GROUP targetId:groupId content:voiceMessage pushContent:nil pushData:nil progress:^(int progress, long messageId) {
+        
+    } success:^(long messageId) {
+        if (successBlock) {
+            successBlock(messageId);
+        }
+    } error:^(RCErrorCode errorCode, long messageId) {
+        if (failBlock) {
+            failBlock(errorCode, messageId);
+        }
+    } cancel:^(long messageId) {
+        
+    }];
 }
 
 @end

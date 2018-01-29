@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "IMService+SendMessage.h"
 
 @interface RCloudSendMessageTests : XCTestCase
 

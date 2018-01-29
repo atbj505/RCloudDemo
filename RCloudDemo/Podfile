@@ -4,7 +4,7 @@
 # use_frameworks!
 
 target 'RCloudDemo' do
-    pod 'RongCloudIMLib'
+    pod 'RongCloudIM/IMKit'
 end
 
 target 'RCloudDemoTests' do
