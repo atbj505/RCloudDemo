@@ -81,7 +81,6 @@ typedef void (^sendFailBlock)(RCErrorCode errorcode, long messageId);
  */
 - (void)sendImageUserId:(NSString *)userId
                imageUrl:(NSString *)imageUrl
-               progress:(sendProgressBlock)progressBlock
                 success:(sendSuccessBlock)successBlock
                    fail:(sendFailBlock)failBlock;
 
@@ -96,7 +95,6 @@ typedef void (^sendFailBlock)(RCErrorCode errorcode, long messageId);
  */
 - (void)sendImageGroupId:(NSString *)groupId
                 imageUrl:(NSString *)imageUrl
-                progress:(sendProgressBlock)progressBlock
                  success:(sendSuccessBlock)successBlock
                     fail:(sendFailBlock)failBlock;
 
