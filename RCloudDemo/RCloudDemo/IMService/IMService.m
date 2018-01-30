@@ -8,7 +8,11 @@
 
 #import "IMService.h"
 
-static NSString * const RCIMAPPTOKEN = @"c9kqb3rdkglbj";
+static NSString * const RCIMAPPKEY = @"c9kqb3rdkglbj";
+
+@interface IMService ()
+
+@end
 
 @implementation IMService
 
@@ -25,23 +29,17 @@ static NSString * const RCIMAPPTOKEN = @"c9kqb3rdkglbj";
 
 - (instancetype)init {
     if (self = [super init]) {
-        [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self object:nil];
-        [[RCIMClient sharedRCIMClient] initWithAppKey:@"c9kqb3rdkglbj"];
+        [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self.receiver object:nil];
+        [[RCIMClient sharedRCIMClient] initWithAppKey:RCIMAPPKEY];
     }
     return self;
 }
 
-- (void)onReceived:(RCMessage *)message left:(int)nLeft object:(id)object {
-    if ([message.content isMemberOfClass:[RCTextMessage class]]) {
-        RCTextMessage *testMessage = (RCTextMessage *)message.content;
-        NSLog(@"消息内容：%@", testMessage.content);
-    }else if ([message.content isMemberOfClass:[RCImageMessage class]]) {
-        
-    }else if ([message.content isMemberOfClass:[RCVoiceMessage class]]) {
-        
+- (IMServiceReceiver *)receiver {
+    if (!_receiver) {
+        _receiver = [[IMServiceReceiver alloc] init];
     }
-    
-    NSLog(@"还剩余的未接收的消息数：%d", nLeft);
+    return _receiver;
 }
 
 @end

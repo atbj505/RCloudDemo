@@ -18,7 +18,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [[IMService sharedIMService] connectWithToken:@"m9MuUWXvyVXb+/XJGkQFySmnGhOsS0WXtc36nE5wpSTKuXd2RIzD9HT3DF9k4us2kbwih5Q3g20AydC9r2rtUA=="];
+    //robert rg2IPnRCD/tZqhZpBbvbg+QlHM19NWJxDanWpG0+73ptPI3CEBj9IcOM9UU1S4BAnjnARN4Y6EtTFGHljU6mNw==
+    //080904 nE6Mrb9Rbdb8sDfXEO05Hlp+MCW6KAJIche2lJ5eytpqtN64OW1hfqZwxJwRRv3rPQ0zo+BjJykrmtr2lgR+aA==
+    
+    [[IMService sharedIMService] connectWithToken:@"nE6Mrb9Rbdb8sDfXEO05Hlp+MCW6KAJIche2lJ5eytpqtN64OW1hfqZwxJwRRv3rPQ0zo+BjJykrmtr2lgR+aA=="];
     
     return YES;
 }

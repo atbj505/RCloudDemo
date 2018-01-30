@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IMServiceReceiver.h"
 
-@interface IMService : NSObject <RCIMClientReceiveMessageDelegate>
+@interface IMService : NSObject
+
+@property (nonatomic, strong) IMServiceReceiver *receiver;
 
 /**
  *  单例方法

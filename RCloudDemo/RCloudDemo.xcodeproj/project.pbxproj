@@ -8,9 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		53F28EDC75906CA0F2C93189 /* libPods-RCloudDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70063CB1300E4D73F0EB2418 /* libPods-RCloudDemo.a */; };
+		57078B5A201F316800356643 /* IMServiceReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 57078B59201F316800356643 /* IMServiceReceiver.m */; };
+		57078B712020241500356643 /* IMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57078B692020241500356643 /* IMModel.m */; };
+		57078B722020241500356643 /* IMImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57078B6D2020241500356643 /* IMImageModel.m */; };
+		57078B732020241500356643 /* IMVoiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57078B6F2020241500356643 /* IMVoiceModel.m */; };
+		57078B742020241500356643 /* IMTextModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57078B702020241500356643 /* IMTextModel.m */; };
 		572FC8BC1CE18B7200C9BCAC /* IMService+Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 572FC8BB1CE18B7200C9BCAC /* IMService+Conversation.m */; };
 		57382731201F14BF00071D53 /* IMService+Connect.m in Sources */ = {isa = PBXBuildFile; fileRef = 57382730201F14BF00071D53 /* IMService+Connect.m */; };
-		57382734201F15C100071D53 /* IMService+Receive.m in Sources */ = {isa = PBXBuildFile; fileRef = 57382733201F15C100071D53 /* IMService+Receive.m */; };
 		574757001CE07D9100D481AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 574756FF1CE07D9100D481AD /* main.m */; };
 		574757031CE07D9100D481AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 574757021CE07D9100D481AD /* AppDelegate.m */; };
 		574757061CE07D9100D481AD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 574757051CE07D9100D481AD /* ViewController.m */; };
@@ -37,12 +41,20 @@
 
 /* Begin PBXFileReference section */
 		4F891544B99F04FA1E333A0A /* Pods-RCloudDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCloudDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RCloudDemo/Pods-RCloudDemo.release.xcconfig"; sourceTree = "<group>"; };
+		57078B58201F316800356643 /* IMServiceReceiver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMServiceReceiver.h; sourceTree = "<group>"; };
+		57078B59201F316800356643 /* IMServiceReceiver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMServiceReceiver.m; sourceTree = "<group>"; };
+		57078B692020241500356643 /* IMModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMModel.m; sourceTree = "<group>"; };
+		57078B6A2020241500356643 /* IMImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMImageModel.h; sourceTree = "<group>"; };
+		57078B6B2020241500356643 /* IMTextModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMTextModel.h; sourceTree = "<group>"; };
+		57078B6C2020241500356643 /* IMVoiceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMVoiceModel.h; sourceTree = "<group>"; };
+		57078B6D2020241500356643 /* IMImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMImageModel.m; sourceTree = "<group>"; };
+		57078B6E2020241500356643 /* IMModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMModel.h; sourceTree = "<group>"; };
+		57078B6F2020241500356643 /* IMVoiceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMVoiceModel.m; sourceTree = "<group>"; };
+		57078B702020241500356643 /* IMTextModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTextModel.m; sourceTree = "<group>"; };
 		572FC8BA1CE18B7200C9BCAC /* IMService+Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IMService+Conversation.h"; sourceTree = "<group>"; };
 		572FC8BB1CE18B7200C9BCAC /* IMService+Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IMService+Conversation.m"; sourceTree = "<group>"; };
 		5738272F201F14BF00071D53 /* IMService+Connect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IMService+Connect.h"; sourceTree = "<group>"; };
 		57382730201F14BF00071D53 /* IMService+Connect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "IMService+Connect.m"; sourceTree = "<group>"; };
-		57382732201F15C100071D53 /* IMService+Receive.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IMService+Receive.h"; sourceTree = "<group>"; };
-		57382733201F15C100071D53 /* IMService+Receive.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "IMService+Receive.m"; sourceTree = "<group>"; };
 		574756FB1CE07D9100D481AD /* RCloudDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RCloudDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		574756FF1CE07D9100D481AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		574757011CE07D9100D481AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -92,6 +104,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57078B682020241500356643 /* IMModel */ = {
+			isa = PBXGroup;
+			children = (
+				57078B6E2020241500356643 /* IMModel.h */,
+				57078B692020241500356643 /* IMModel.m */,
+				57078B6B2020241500356643 /* IMTextModel.h */,
+				57078B702020241500356643 /* IMTextModel.m */,
+				57078B6A2020241500356643 /* IMImageModel.h */,
+				57078B6D2020241500356643 /* IMImageModel.m */,
+				57078B6C2020241500356643 /* IMVoiceModel.h */,
+				57078B6F2020241500356643 /* IMVoiceModel.m */,
+			);
+			path = IMModel;
+			sourceTree = "<group>";
+		};
 		574756F21CE07D9100D481AD = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				5747572D1CE178FF00D481AD /* IMService */,
+				57078B682020241500356643 /* IMModel */,
 				574756FE1CE07D9100D481AD /* Supporting Files */,
 				574757011CE07D9100D481AD /* AppDelegate.h */,
 				574757021CE07D9100D481AD /* AppDelegate.m */,
@@ -152,10 +180,10 @@
 			children = (
 				574757241CE0875400D481AD /* IMService.h */,
 				574757251CE0875400D481AD /* IMService.m */,
+				57078B58201F316800356643 /* IMServiceReceiver.h */,
+				57078B59201F316800356643 /* IMServiceReceiver.m */,
 				5738272F201F14BF00071D53 /* IMService+Connect.h */,
 				57382730201F14BF00071D53 /* IMService+Connect.m */,
-				57382732201F15C100071D53 /* IMService+Receive.h */,
-				57382733201F15C100071D53 /* IMService+Receive.m */,
 				572FC8BA1CE18B7200C9BCAC /* IMService+Conversation.h */,
 				572FC8BB1CE18B7200C9BCAC /* IMService+Conversation.m */,
 				5747572A1CE178FA00D481AD /* IMService+Record.h */,
@@ -243,6 +271,7 @@
 				TargetAttributes = {
 					574756FA1CE07D9100D481AD = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = FJXM979Q77;
 					};
 					574757131CE07D9100D481AD = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -402,14 +431,18 @@
 			files = (
 				572FC8BC1CE18B7200C9BCAC /* IMService+Conversation.m in Sources */,
 				574757061CE07D9100D481AD /* ViewController.m in Sources */,
+				57078B5A201F316800356643 /* IMServiceReceiver.m in Sources */,
 				574757261CE0875400D481AD /* IMService.m in Sources */,
+				57078B742020241500356643 /* IMTextModel.m in Sources */,
 				574757301CE1889600D481AD /* IMService+UnreadCount.m in Sources */,
 				574757031CE07D9100D481AD /* AppDelegate.m in Sources */,
+				57078B712020241500356643 /* IMModel.m in Sources */,
+				57078B732020241500356643 /* IMVoiceModel.m in Sources */,
+				57078B722020241500356643 /* IMImageModel.m in Sources */,
 				574757001CE07D9100D481AD /* main.m in Sources */,
 				57382731201F14BF00071D53 /* IMService+Connect.m in Sources */,
 				5747572C1CE178FA00D481AD /* IMService+Record.m in Sources */,
 				574757291CE16D6400D481AD /* IMService+SendMessage.m in Sources */,
-				57382734201F15C100071D53 /* IMService+Receive.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,6 +574,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = FJXM979Q77;
 				GCC_PREFIX_HEADER = "RCloudDemo/Supporting Files/RCloudDemo.pch";
 				INFOPLIST_FILE = RCloudDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -555,6 +589,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = FJXM979Q77;
 				GCC_PREFIX_HEADER = "RCloudDemo/Supporting Files/RCloudDemo.pch";
 				INFOPLIST_FILE = RCloudDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

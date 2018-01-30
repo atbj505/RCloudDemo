@@ -12,12 +12,33 @@
 
 @interface ViewController ()
 
+@property (nonatomic, strong) UILabel *label;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.label = [[UILabel alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:self.label];
+    self.label.numberOfLines = 0;
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [[IMService sharedIMService] sendTextUserId:@"080904" content:@"test" success:^(long messageId) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSString *string = self.label.text;
+            if (!string) {
+                string = @"";
+            }
+            string = [string stringByAppendingFormat:@"Sended Message: %ld\n", messageId];
+            self.label.text = string;
+        });
+    } fail:^(RCErrorCode errorcode, long messageId) {
+        
+    }];
 }
 
 @end
