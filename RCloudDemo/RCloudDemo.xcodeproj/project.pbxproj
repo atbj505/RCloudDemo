@@ -13,6 +13,7 @@
 		57078B722020241500356643 /* IMImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57078B6D2020241500356643 /* IMImageModel.m */; };
 		57078B732020241500356643 /* IMVoiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57078B6F2020241500356643 /* IMVoiceModel.m */; };
 		57078B742020241500356643 /* IMTextModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57078B702020241500356643 /* IMTextModel.m */; };
+		57078B772021A89000356643 /* IMService+Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 57078B762021A89000356643 /* IMService+Message.m */; };
 		572FC8BC1CE18B7200C9BCAC /* IMService+Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 572FC8BB1CE18B7200C9BCAC /* IMService+Conversation.m */; };
 		57382731201F14BF00071D53 /* IMService+Connect.m in Sources */ = {isa = PBXBuildFile; fileRef = 57382730201F14BF00071D53 /* IMService+Connect.m */; };
 		574757001CE07D9100D481AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 574756FF1CE07D9100D481AD /* main.m */; };
@@ -50,6 +51,8 @@
 		57078B6E2020241500356643 /* IMModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMModel.h; sourceTree = "<group>"; };
 		57078B6F2020241500356643 /* IMVoiceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMVoiceModel.m; sourceTree = "<group>"; };
 		57078B702020241500356643 /* IMTextModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTextModel.m; sourceTree = "<group>"; };
+		57078B752021A89000356643 /* IMService+Message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IMService+Message.h"; sourceTree = "<group>"; };
+		57078B762021A89000356643 /* IMService+Message.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "IMService+Message.m"; sourceTree = "<group>"; };
 		572FC8BA1CE18B7200C9BCAC /* IMService+Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IMService+Conversation.h"; sourceTree = "<group>"; };
 		572FC8BB1CE18B7200C9BCAC /* IMService+Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IMService+Conversation.m"; sourceTree = "<group>"; };
 		5738272F201F14BF00071D53 /* IMService+Connect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IMService+Connect.h"; sourceTree = "<group>"; };
@@ -183,6 +186,8 @@
 				57382730201F14BF00071D53 /* IMService+Connect.m */,
 				572FC8BA1CE18B7200C9BCAC /* IMService+Conversation.h */,
 				572FC8BB1CE18B7200C9BCAC /* IMService+Conversation.m */,
+				57078B752021A89000356643 /* IMService+Message.h */,
+				57078B762021A89000356643 /* IMService+Message.m */,
 				5747572A1CE178FA00D481AD /* IMService+Record.h */,
 				5747572B1CE178FA00D481AD /* IMService+Record.m */,
 				574757271CE16D6400D481AD /* IMService+SendMessage.h */,
@@ -433,6 +438,7 @@
 				57078B722020241500356643 /* IMImageModel.m in Sources */,
 				574757001CE07D9100D481AD /* main.m in Sources */,
 				57382731201F14BF00071D53 /* IMService+Connect.m in Sources */,
+				57078B772021A89000356643 /* IMService+Message.m in Sources */,
 				5747572C1CE178FA00D481AD /* IMService+Record.m in Sources */,
 				574757291CE16D6400D481AD /* IMService+SendMessage.m in Sources */,
 			);

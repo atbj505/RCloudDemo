@@ -11,6 +11,9 @@
 
 @interface IMService : NSObject
 
+/**
+ 消息回调接受者
+ */
 @property (nonatomic, strong) IMServiceReceiver *receiver;
 
 /**
