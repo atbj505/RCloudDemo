@@ -28,4 +28,20 @@
     return conversation;
 }
 
+- (NSArray<RCSearchConversationResult *> *)searchConversationskeyword:(NSString *)keyword {
+    NSArray *conversationType = @[ @(ConversationType_PRIVATE),
+                                   @(ConversationType_DISCUSSION),
+                                   @(ConversationType_GROUP),
+                                   @(ConversationType_SYSTEM),
+                                   @(ConversationType_APPSERVICE),
+                                   @(ConversationType_PUBLICSERVICE) ];
+
+    NSArray *messageType = @[ [RCTextMessage getObjectName],
+                              [RCImageMessage getObjectName],
+                              [RCVoiceMessage getObjectName],
+                              [RCFileMessage getObjectName] ];
+
+    return [[RCIMClient sharedRCIMClient] searchConversations:conversationType messageType:messageType keyword:keyword];
+}
+
 @end

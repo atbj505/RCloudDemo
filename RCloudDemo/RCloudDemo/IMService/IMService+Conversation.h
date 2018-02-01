@@ -12,21 +12,27 @@
 @interface IMService (Conversation)
 
 /**
- *  获取会话列表
- *
- *  @return 会话列表
+ 获取会话列表
+ 
+ @return 会话列表
  */
 - (NSArray *)getConversationLists;
 
 /**
- *  获取指定会话
- *
- *  @param conversationType 会话类型
- *  @param targetId         会话ID
- *
- *  @return 会话对象
+ 获取指定会话
+ 
+ @param conversationType 会话类型
+ @param targetId         会话ID
+ @return 会话对象
  */
 - (RCConversation *)getConversation:(RCConversationType)conversationType
                            targetId:(NSString *)targetId;
 
+/**
+ 根据关键字搜索
+
+ @param keyword 关键字
+ @return 搜索结果
+ */
+- (NSArray<RCSearchConversationResult *> *)searchConversationskeyword:(NSString *)keyword;
 @end

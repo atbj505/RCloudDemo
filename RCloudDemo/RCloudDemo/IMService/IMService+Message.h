@@ -11,6 +11,7 @@
 
 @interface IMService (Message)
 
+#pragma mark-- 获取信息
 /**
  获取所有本地消息
  
@@ -55,4 +56,79 @@
                    success:(void (^)(NSArray *messages))successBlock
                      error:(void (^)(RCErrorCode status))errorBlock;
 
+
+/**
+ 搜索消息（一次10条）
+
+ @param conversationType 会话类型
+ @param targetId 会话ID
+ @param keyword 关键字
+ @return 搜索结果
+ */
+- (NSArray<RCMessage *> *)searchMessages:(RCConversationType)conversationType
+                                targetId:(NSString *)targetId
+                                 keyword:(NSString *)keyword;
+#pragma mark-- 删除信息
+
+/**
+ 删除信息
+
+ @param conversationType 会话类型
+ @param targetId 会话ID（传入targetId则清楚此会话所有信息）
+ @param messageIds 消息ID数组（传入messageIds则只删除数字中的消息）
+ @param successBlock 成功回调
+ @param errorBlock 失败回调
+ */
+- (void)deleteMessages:(RCConversationType)conversationType
+              targetId:(NSString *)targetId
+            messageIds:(NSArray *)messageIds
+               success:(void (^)(void))successBlock
+                 error:(void (^)(RCErrorCode status))errorBlock;
+
+#pragma mark-- 设置消息状态
+
+/**
+ 设置接收状态
+
+ @param messageId 消息ID
+ @param receivedStatus 接收状态
+ @return 设置成功/失败
+ */
+- (BOOL)setMessageReceivedStatus:(long)messageId
+                  receivedStatus:(RCReceivedStatus)receivedStatus;
+
+/**
+ 设置发送状态
+
+ @param messageId 消息ID
+ @param sentStatus 发送状态
+ @return 设置成功/失败
+ */
+- (BOOL)setMessageSentStatus:(long)messageId
+                  sentStatus:(RCSentStatus)sentStatus;
+
+#pragma mark-- 下载&取消
+
+/**
+ 下载文件
+
+ @param messageId 消息ID
+ @param progressBlock 进度回调
+ @param successBlock 成功回调
+ @param errorBlock 失败回调
+ @param cancelBlock 取消回调
+ */
+- (void)downloadMediaMessage:(long)messageId
+                    progress:(void (^)(int progress))progressBlock
+                     success:(void (^)(NSString *mediaPath))successBlock
+                       error:(void (^)(RCErrorCode errorCode))errorBlock
+                      cancel:(void (^)(void))cancelBlock;
+
+/**
+ 取消下载文件
+
+ @param messageId 消息ID
+ @return 取消成功/失败
+ */
+- (BOOL)cancelDownloadMediaMessage:(long)messageId;
 @end

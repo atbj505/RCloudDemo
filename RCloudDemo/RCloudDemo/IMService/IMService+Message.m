@@ -53,4 +53,49 @@
     }
 }
 
+- (NSArray<RCMessage *> *)searchMessages:(RCConversationType)conversationType
+                                targetId:(NSString *)targetId
+                                 keyword:(NSString *)keyword {
+    return [[RCIMClient sharedRCIMClient] searchMessages:conversationType targetId:targetId keyword:keyword count:10 startTime:0];
+}
+
+- (void)deleteMessages:(RCConversationType)conversationType
+              targetId:(NSString *)targetId
+            messageIds:(NSArray *)messageIds
+               success:(void (^)(void))successBlock
+                 error:(void (^)(RCErrorCode status))errorBlock {
+    if (messageIds.count) {
+        BOOL result = [[RCIMClient sharedRCIMClient] deleteMessages:messageIds];
+        if (result) {
+            successBlock();
+        } else {
+            errorBlock(ERRORCODE_UNKNOWN);
+        }
+    } else {
+        [[RCIMClient sharedRCIMClient] deleteMessages:conversationType targetId:targetId success:successBlock error:errorBlock];
+    }
+}
+
+- (BOOL)setMessageReceivedStatus:(long)messageId
+                  receivedStatus:(RCReceivedStatus)receivedStatus {
+    return [[RCIMClient sharedRCIMClient] setMessageReceivedStatus:messageId receivedStatus:receivedStatus];
+}
+
+- (BOOL)setMessageSentStatus:(long)messageId
+                  sentStatus:(RCSentStatus)sentStatus {
+    return [[RCIMClient sharedRCIMClient] setMessageSentStatus:messageId sentStatus:sentStatus];
+}
+
+- (void)downloadMediaMessage:(long)messageId
+                    progress:(void (^)(int progress))progressBlock
+                     success:(void (^)(NSString *mediaPath))successBlock
+                       error:(void (^)(RCErrorCode errorCode))errorBlock
+                      cancel:(void (^)(void))cancelBlock {
+    [[RCIMClient sharedRCIMClient] downloadMediaMessage:messageId progress:progressBlock success:successBlock error:errorBlock cancel:cancelBlock];
+}
+
+- (BOOL)cancelDownloadMediaMessage:(long)messageId {
+    return [[RCIMClient sharedRCIMClient] cancelDownloadMediaMessage:messageId];
+}
+
 @end
