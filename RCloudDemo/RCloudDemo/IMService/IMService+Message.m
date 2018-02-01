@@ -8,9 +8,10 @@
 
 #import "IMService+Message.h"
 
+
 @implementation IMService (Message)
 
-- (NSArray <RCMessage *>*)getAllLocalMessage:(RCConversationType)conversationType
+- (NSArray<RCMessage *> *)getAllLocalMessage:(RCConversationType)conversationType
                                     targetId:(NSString *)targetId {
     return [[RCIMClient sharedRCIMClient] getLatestMessages:conversationType targetId:targetId count:999];
 }
@@ -28,7 +29,7 @@
             [messages.mutableCopy addObjectsFromArray:localMessages];
             successBlock(messages);
         } error:errorBlock];
-    }else {
+    } else {
         successBlock(localMessages);
     }
 }
@@ -47,7 +48,7 @@
             [messages.mutableCopy addObjectsFromArray:localMessages];
             successBlock(messages);
         } error:errorBlock];
-    }else {
+    } else {
         successBlock(localMessages);
     }
 }

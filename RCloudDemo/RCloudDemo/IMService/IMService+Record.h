@@ -10,6 +10,7 @@
 
 typedef void (^recordStopBlock)(NSURL *url, long duration);
 
+
 @interface IMService (Record)
 
 /**

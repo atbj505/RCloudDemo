@@ -8,22 +8,24 @@
 
 #import "IMService.h"
 
-static NSString * const RCIMAPPKEY = @"c9kqb3rdkglbj";
+static NSString *const RCIMAPPKEY = @"c9kqb3rdkglbj";
+
 
 @interface IMService ()
 
 @end
+
 
 @implementation IMService
 
 + (instancetype)sharedIMService {
     static dispatch_once_t onceToken;
     static IMService *service;
-    
+
     dispatch_once(&onceToken, ^{
         service = [[[self class] alloc] init];
     });
-    
+
     return service;
 }
 

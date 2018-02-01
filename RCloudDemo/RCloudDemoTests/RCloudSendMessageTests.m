@@ -9,9 +9,11 @@
 #import <XCTest/XCTest.h>
 #import "IMService+SendMessage.h"
 
+
 @interface RCloudSendMessageTests : XCTestCase
 
 @end
+
 
 @implementation RCloudSendMessageTests
 
@@ -27,15 +29,15 @@
 
 - (void)testSendMessage {
     XCTestExpectation *expectation = [self expectationWithDescription:@"sendTextMessage"];
-    
-    [[IMService sharedIMService] sendTextUserId:@"080904" content:@"test"success:^(long messageId) {
+
+    [[IMService sharedIMService] sendTextUserId:@"080904" content:@"test" success:^(long messageId) {
         XCTAssertGreaterThanOrEqual(messageId, 0, @"send fail");
         [expectation fulfill];
-    } fail:^(RCErrorCode errorcode, long messageId) {
-        
+    } fail:^(RCErrorCode errorcode, long messageId){
+
     }];
-    
-    [self waitForExpectationsWithTimeout:10 handler:^(NSError * _Nullable error) {
+
+    [self waitForExpectationsWithTimeout:10 handler:^(NSError *_Nullable error) {
         if (error) {
             NSLog(@"Timeout Error: %@", error);
         }

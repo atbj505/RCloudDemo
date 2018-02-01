@@ -8,6 +8,7 @@
 
 #import "IMService+Connect.h"
 
+
 @implementation IMService (Connect)
 
 - (void)connectWithToken:(NSString *)token {

@@ -10,17 +10,19 @@
 #import "IMService+SendMessage.h"
 #import "IMService+Conversation.h"
 
+
 @interface ViewController ()
 
 @property (nonatomic, strong) UILabel *label;
 
 @end
 
+
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.label = [[UILabel alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.label];
     self.label.numberOfLines = 0;
@@ -36,8 +38,8 @@
             string = [string stringByAppendingFormat:@"Sended Message: %ld\n", messageId];
             self.label.text = string;
         });
-    } fail:^(RCErrorCode errorcode, long messageId) {
-        
+    } fail:^(RCErrorCode errorcode, long messageId){
+
     }];
 }
 

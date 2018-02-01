@@ -8,6 +8,7 @@
 
 #import "IMModel.h"
 
+
 @interface IMTextModel : IMModel
 
 @end

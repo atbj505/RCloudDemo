@@ -12,6 +12,7 @@ typedef void (^sendProgressBlock)(int progress, long messageId);
 typedef void (^sendSuccessBlock)(long messageId);
 typedef void (^sendFailBlock)(RCErrorCode errorcode, long messageId);
 
+
 @interface IMService (SendMessage)
 
 /**

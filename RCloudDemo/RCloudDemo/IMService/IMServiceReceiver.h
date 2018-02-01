@@ -19,6 +19,7 @@
 
 @end
 
+
 @interface IMServiceReceiver : NSObject <RCIMClientReceiveMessageDelegate>
 
 @property (nonatomic, weak) id<IMServiceReceiverDelegate> delegate;

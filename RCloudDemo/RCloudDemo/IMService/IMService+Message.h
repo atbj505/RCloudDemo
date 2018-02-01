@@ -8,6 +8,7 @@
 
 #import "IMService.h"
 
+
 @interface IMService (Message)
 
 /**
@@ -17,7 +18,7 @@
  @param targetId 会话ID
  @return 消息列表
  */
-- (NSArray <RCMessage *>*)getAllLocalMessage:(RCConversationType)conversationType
+- (NSArray<RCMessage *> *)getAllLocalMessage:(RCConversationType)conversationType
                                     targetId:(NSString *)targetId;
 
 
