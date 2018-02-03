@@ -138,4 +138,19 @@
 
     [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_GROUP targetId:groupId content:fileMessage pushContent:nil pushData:nil success:successBlock error:errorBlock];
 }
+
+- (void)sendGroupIdId:(NSString *)groupId
+        mentionedType:(RCMentionedType)type
+           userIdList:(NSArray *)userIdList
+     mentionedContent:(NSString *)mentionedContent
+              success:(sendSuccessBlock)successBlock
+                error:(sendErrorBlock)errorBlock {
+    RCMentionedInfo *mentionInfo = [[RCMentionedInfo alloc] initWithMentionedType:type userIdList:userIdList mentionedContent:mentionedContent];
+
+    RCTextMessage *textMessage = [RCTextMessage messageWithContent:mentionedContent];
+    textMessage.mentionedInfo = mentionInfo;
+
+    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_GROUP targetId:groupId content:textMessage pushContent:nil pushData:nil success:successBlock error:errorBlock];
+}
+
 @end

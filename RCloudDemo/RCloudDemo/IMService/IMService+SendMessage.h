@@ -15,6 +15,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
 
 @interface IMService (SendMessage)
 
+#pragma mark-- 文字消息
 /**
  发送单人文字消息
  
@@ -41,6 +42,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
                 success:(sendSuccessBlock)successBlock
                   error:(sendErrorBlock)errorBlock;
 
+#pragma mark-- 图片消息
 /**
  发送单人图片消息
  
@@ -107,6 +109,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
                  success:(sendSuccessBlock)successBlock
                    error:(sendErrorBlock)errorBlock;
 
+#pragma mark-- 语音消息
 /**
  发送单人语音消息
  
@@ -141,6 +144,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
                  success:(sendSuccessBlock)successBlock
                    error:(sendErrorBlock)errorBlock;
 
+#pragma mark-- 文件消息
 /**
  发送单人文件消息
  
@@ -197,4 +201,21 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
         uploadedFileUrl:(NSString *)fileUrl
                 success:(sendSuccessBlock)successBlock
                   error:(sendErrorBlock)errorBlock;
+
+/**
+ 发送@消息
+
+ @param groupId 群组ID
+ @param type @消息类型
+ @param userIdList 用户列表，如果是@所有人，则传nil
+ @param mentionedContent 提醒内容
+ @param successBlock 成功回调
+ @param errorBlock 失败回调
+ */
+- (void)sendGroupIdId:(NSString *)groupId
+        mentionedType:(RCMentionedType)type
+           userIdList:(NSArray *)userIdList
+     mentionedContent:(NSString *)mentionedContent
+              success:(sendSuccessBlock)successBlock
+                error:(sendErrorBlock)errorBlock;
 @end

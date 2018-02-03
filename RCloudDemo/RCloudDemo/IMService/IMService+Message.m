@@ -61,18 +61,34 @@
 
 - (void)deleteMessages:(RCConversationType)conversationType
               targetId:(NSString *)targetId
-            messageIds:(NSArray *)messageIds
+              messages:(NSArray *)messages
+                  sync:(BOOL)isSync
                success:(void (^)(void))successBlock
                  error:(void (^)(RCErrorCode status))errorBlock {
-    if (messageIds.count) {
+    if (messages.count) {
+        //删除messages中包含的信息
+        NSMutableArray *messageIds = [NSMutableArray arrayWithCapacity:messages.count];
+        for (RCMessage *message in messages) {
+            [messageIds addObject:@(message.messageId)];
+        }
         BOOL result = [[RCIMClient sharedRCIMClient] deleteMessages:messageIds];
         if (result) {
-            successBlock();
+            if (isSync) {
+                RCMessage *deadLineMessage = messages.lastObject;
+                [[RCIMClient sharedRCIMClient] clearRemoteHistoryMessages:conversationType targetId:targetId recordTime:deadLineMessage.receivedTime success:successBlock error:errorBlock];
+            } else {
+                successBlock();
+            }
         } else {
             errorBlock(ERRORCODE_UNKNOWN);
         }
     } else {
-        [[RCIMClient sharedRCIMClient] deleteMessages:conversationType targetId:targetId success:successBlock error:errorBlock];
+        //删除整个会话的信息
+        [[RCIMClient sharedRCIMClient] deleteMessages:conversationType targetId:targetId success:^{
+            if (isSync) {
+                [[RCIMClient sharedRCIMClient] clearRemoteHistoryMessages:conversationType targetId:targetId recordTime:0 success:successBlock error:errorBlock];
+            }
+        } error:errorBlock];
     }
 }
 

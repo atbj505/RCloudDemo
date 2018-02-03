@@ -38,7 +38,7 @@
             string = [string stringByAppendingFormat:@"Sended Message: %ld\n", messageId];
             self.label.text = string;
         });
-    } fail:^(RCErrorCode errorcode, long messageId){
+    } error:^(RCErrorCode errorcode, long messageId){
 
     }];
 }

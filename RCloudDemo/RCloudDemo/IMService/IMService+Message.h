@@ -74,14 +74,19 @@
  删除信息
 
  @param conversationType 会话类型
- @param targetId 会话ID（传入targetId则清楚此会话所有信息）
- @param messageIds 消息ID数组（传入messageIds则只删除数字中的消息）
+ @param targetId 会话ID（传入targetId则删除此会话所有信息）
+ @param messages 消息数组（传入messages则只删除messages对应的消息）
+ @param sync 是否与服务器同步删除
  @param successBlock 成功回调
  @param errorBlock 失败回调
+ 
+ * 如果传入messages则优先删除messsages中的消息，如果想删除会话的所有消息则传入targetId，messages传空
+ 
  */
 - (void)deleteMessages:(RCConversationType)conversationType
               targetId:(NSString *)targetId
-            messageIds:(NSArray *)messageIds
+              messages:(NSArray *)messages
+                  sync:(BOOL)isSync
                success:(void (^)(void))successBlock
                  error:(void (^)(RCErrorCode status))errorBlock;
 

@@ -14,6 +14,11 @@
 - (void)connectWithToken:(NSString *)token {
     [[RCIMClient sharedRCIMClient] connectWithToken:token success:^(NSString *userId) {
         NSLog(@"success:%@", userId);
+        [[RCIMClient sharedRCIMClient] setOfflineMessageDuration:3 success:^{
+
+        } failure:^(RCErrorCode nErrorCode){
+
+        }];
     } error:^(RCConnectErrorCode status) {
         NSLog(@"error:%ld", (long)status);
     } tokenIncorrect:^{

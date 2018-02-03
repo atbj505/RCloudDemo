@@ -31,8 +31,9 @@ static NSString *const RCIMAPPKEY = @"c9kqb3rdkglbj";
 
 - (instancetype)init {
     if (self = [super init]) {
-        [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self.receiver object:nil];
         [[RCIMClient sharedRCIMClient] initWithAppKey:RCIMAPPKEY];
+        [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self.receiver object:nil];
+        [[RCIMClient sharedRCIMClient] setRCTypingStatusDelegate:self.receiver];
     }
     return self;
 }
