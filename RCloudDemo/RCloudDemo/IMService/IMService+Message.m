@@ -114,4 +114,10 @@
     return [[RCIMClient sharedRCIMClient] cancelDownloadMediaMessage:messageId];
 }
 
+- (void)recallMessage:(RCMessage *)message
+              success:(void (^)(long messageId))successBlock
+                error:(void (^)(RCErrorCode errorcode))errorBlock {
+    [[RCIMClient sharedRCIMClient] recallMessage:message success:successBlock error:errorBlock];
+}
+
 @end

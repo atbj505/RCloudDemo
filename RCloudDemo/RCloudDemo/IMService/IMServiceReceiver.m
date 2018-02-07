@@ -7,6 +7,7 @@
 //
 
 #import "IMServiceReceiver.h"
+#import "IMService+Message.h"
 
 
 @implementation IMServiceReceiver
@@ -43,6 +44,14 @@
         if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedTypingStatusChanged:targetId:userId:contentType:)]) {
             [self.delegate onReceivedTypingStatusChanged:conversationType targetId:targetId userId:typeStatus.userId contentType:typeStatus.contentType];
         }
+    }
+}
+
+- (void)onMessageRecalled:(long)messageId {
+    RCMessage *message = [[RCIMClient sharedRCIMClient] getMessage:messageId];
+    RCRecallNotificationMessage *recalledMessage = (RCRecallNotificationMessage *)message.content;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedRecalledMessage:content:)]) {
+        [self.delegate onReceivedRecalledMessage:message content:recalledMessage];
     }
 }
 

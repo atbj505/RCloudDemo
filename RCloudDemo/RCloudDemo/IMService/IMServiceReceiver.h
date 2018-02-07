@@ -30,6 +30,9 @@
                       content:(RCFileMessage *)content
                          left:(int)nLeft;
 
+//收到消息撤回
+- (void)onReceivedRecalledMessage:(RCMessage *)message
+                          content:(RCRecallNotificationMessage *)content;
 
 /**
  收到用户输入状态改变
@@ -38,10 +41,10 @@
  @param targetId 会话ID
  @param userId 用户ID
  @param contentType 正在输入的消息类型名
- * RCTextMessageTypeIdentifier -> 文本类型
- * RCImageMessageTypeIdentifier -> 图片类型
- * RCVoiceMessageTypeIdentifier -> 语音类型
- * RCFileMessageTypeIdentifier -> 文件类型
+ RCTextMessageTypeIdentifier -> 文本类型
+ RCImageMessageTypeIdentifier -> 图片类型
+ RCVoiceMessageTypeIdentifier -> 语音类型
+ RCFileMessageTypeIdentifier -> 文件类型
  */
 - (void)onReceivedTypingStatusChanged:(RCConversationType)conversationType
                              targetId:(NSString *)targetId

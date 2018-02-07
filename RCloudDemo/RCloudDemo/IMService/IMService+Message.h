@@ -136,4 +136,17 @@
  @return 取消成功/失败
  */
 - (BOOL)cancelDownloadMediaMessage:(long)messageId;
+
+#pragma mark-- 消息撤回
+
+/**
+ 消息撤回
+
+ @param message 消息
+ @param successBlock 成功回调
+ @param errorBlock 失败回调
+ */
+- (void)recallMessage:(RCMessage *)message
+              success:(void (^)(long messageId))successBlock
+                error:(void (^)(RCErrorCode errorcode))errorBlock;
 @end

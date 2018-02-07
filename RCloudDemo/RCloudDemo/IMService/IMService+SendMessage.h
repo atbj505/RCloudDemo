@@ -202,6 +202,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
                 success:(sendSuccessBlock)successBlock
                   error:(sendErrorBlock)errorBlock;
 
+#pragma mark-- @消息
 /**
  发送@消息
 
