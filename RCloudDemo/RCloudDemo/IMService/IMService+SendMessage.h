@@ -219,4 +219,47 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
      mentionedContent:(NSString *)mentionedContent
               success:(sendSuccessBlock)successBlock
                 error:(sendErrorBlock)errorBlock;
+
+#pragma mark-- 发送消息已读
+
+/**
+ 单聊消息已读回执
+ 
+ @param conversationType 会话类型
+ @param targetId 会话ID
+ @param lastMessage 最后一条信息
+ @param successBlock 成功回调
+ @param errorBlock 失败回调
+ */
+- (void)sendReadReceiptMessage:(RCConversationType)conversationType
+                      targetId:(NSString *)targetId
+                       message:(RCMessage *)lastMessage
+                       success:(void (^)(void))successBlock
+                         error:(void (^)(RCErrorCode errorcode))errorBlock;
+
+/**
+ 群组消息请求该信息需要回执，读之后需要收到阅读回执的消息
+
+ @param message 消息
+ @param successBlock 成功回调
+ @param errorBlock 失败回调
+ */
+- (void)sendReadReceiptRequest:(RCMessage *)message
+                       success:(void (^)())successBlock
+                         error:(void (^)(RCErrorCode nErrorCode))errorBlock;
+
+/**
+ 群组消息已阅回执
+
+ @param conversationType 会话类型
+ @param targetId 会话ID
+ @param messageList 消息列表
+ @param successBlock 成功回调
+ @param errorBlock 失败回调
+ */
+- (void)sendReadReceiptResponse:(RCConversationType)conversationType
+                       targetId:(NSString *)targetId
+                    messageList:(NSArray<RCMessage *> *)messageList
+                        success:(void (^)(void))successBlock
+                          error:(void (^)(RCErrorCode nErrorCode))errorBlock;
 @end

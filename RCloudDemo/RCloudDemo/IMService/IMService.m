@@ -13,6 +13,10 @@ static NSString *const RCIMAPPKEY = @"c9kqb3rdkglbj";
 
 @interface IMService ()
 
+@property (nonatomic, strong, readwrite) IMServiceReceiver *receiver;
+
+@property (nonatomic, strong, readwrite) RCUserInfo *userInfo;
+
 @end
 
 
@@ -36,6 +40,12 @@ static NSString *const RCIMAPPKEY = @"c9kqb3rdkglbj";
         [[RCIMClient sharedRCIMClient] setRCTypingStatusDelegate:self.receiver];
     }
     return self;
+}
+
+- (void)setSenderUserId:(NSString *)userId
+               userName:(NSString *)userName
+               photoUrl:(NSString *)url {
+    self.userInfo = [[RCUserInfo alloc] initWithUserId:userId name:userName portrait:url];
 }
 
 - (IMServiceReceiver *)receiver {

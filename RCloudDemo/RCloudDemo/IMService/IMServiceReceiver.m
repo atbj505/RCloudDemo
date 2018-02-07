@@ -12,6 +12,17 @@
 
 @implementation IMServiceReceiver
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:RCLibDispatchReadReceiptNotification object:nil];
+}
+
+- (instancetype)init {
+    if (self = [super init]) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ReadReceiptMessage:) name:RCLibDispatchReadReceiptNotification object:nil];
+    }
+    return self;
+}
+
 - (void)onReceived:(RCMessage *)message left:(int)nLeft object:(id)object {
     if ([message.content isMemberOfClass:[RCTextMessage class]]) {
         RCTextMessage *textMessage = (RCTextMessage *)message.content;
@@ -55,4 +66,31 @@
     }
 }
 
+- (void)ReadReceiptMessage:(NSNotification *)notification {
+    NSNumber *ctype = [notification.userInfo objectForKey:@"cType"];
+    NSNumber *time = [notification.userInfo objectForKey:@"messageTime"];
+    NSString *targetId = [notification.userInfo objectForKey:@"tId"];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedReadReceiptMessage:targetId:time:)]) {
+        [self.delegate onReceivedReadReceiptMessage:[ctype integerValue] targetId:targetId time:[time longLongValue]];
+    }
+}
+
+- (void)onMessageReceiptRequest:(RCConversationType)conversationType
+                       targetId:(NSString *)targetId
+                     messageUId:(NSString *)messageUId {
+    RCMessage *message = [[RCIMClient sharedRCIMClient] getMessageByUId:messageUId];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedMessageReceiptRequest:targetId:message:)]) {
+        [self.delegate onReceivedMessageReceiptRequest:conversationType targetId:targetId message:message];
+    }
+}
+
+- (void)onMessageReceiptResponse:(RCConversationType)conversationType
+                        targetId:(NSString *)targetId
+                      messageUId:(NSString *)messageUId
+                      readerList:(NSMutableDictionary *)userIdList {
+    RCMessage *message = [[RCIMClient sharedRCIMClient] getMessageByUId:messageUId];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedMessageReceiptResponse:targetId:message:readerList:)]) {
+        [self.delegate onReceivedMessageReceiptResponse:conversationType targetId:targetId message:message readerList:userIdList];
+    }
+}
 @end

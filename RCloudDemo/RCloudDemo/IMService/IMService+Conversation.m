@@ -128,4 +128,12 @@
     [[RCIMClient sharedRCIMClient] sendTypingStatus:conversationType targetId:targetId contentType:objectName];
 }
 
+- (void)syncConversationReadStatus:(RCConversationType)conversationType
+                          targetId:(NSString *)targetId
+                              time:(long long)timestamp
+                           success:(void (^)())successBlock
+                             error:(void (^)(RCErrorCode nErrorCode))errorBlock {
+    [[RCIMClient sharedRCIMClient] syncConversationReadStatus:conversationType targetId:targetId time:timestamp success:successBlock error:errorBlock];
+}
+
 @end

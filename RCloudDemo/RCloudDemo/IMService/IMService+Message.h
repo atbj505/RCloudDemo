@@ -149,4 +149,5 @@
 - (void)recallMessage:(RCMessage *)message
               success:(void (^)(long messageId))successBlock
                 error:(void (^)(RCErrorCode errorcode))errorBlock;
+
 @end

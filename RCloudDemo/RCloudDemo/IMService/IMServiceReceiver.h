@@ -50,6 +50,41 @@
                              targetId:(NSString *)targetId
                                userId:(NSString *)userId
                           contentType:(NSString *)contentType;
+
+/**
+ 收到单聊信息已读信息
+
+ @param conversationType 会话类型
+ @param targetId 会话ID
+ @param time 已读时间
+ */
+- (void)onReceivedReadReceiptMessage:(RCConversationType)conversationType
+                            targetId:(NSString *)targetId
+                                time:(long long)time;
+
+/**
+ 收到群组消息已读请求
+
+ @param conversationType 会话类型
+ @param targetId 会话ID
+ @param message 消息
+ */
+- (void)onReceivedMessageReceiptRequest:(RCConversationType)conversationType
+                               targetId:(NSString *)targetId
+                                message:(RCMessage *)message;
+
+/**
+ 收到群组消息已读回执
+
+ @param conversationType 会话类型
+ @param targetId 会话ID
+ @param message 消息
+ @param userIdList 用户列表
+ */
+- (void)onReceivedMessageReceiptResponse:(RCConversationType)conversationType
+                                targetId:(NSString *)targetId
+                                 message:(RCMessage *)message
+                              readerList:(NSMutableDictionary *)userIdList;
 @end
 
 

@@ -175,4 +175,20 @@
                 targetId:(NSString *)targetId
              contentType:(NSString *)objectName;
 
+#pragma-- mark 多端阅读消息数同步
+
+/**
+ 多端阅读消息数同步 点击进入会话或者退出会话的时候调用
+
+ @param conversationType 会话类型
+ @param targetId 会话ID
+ @param timestamp 已经阅读的最后一条消息的时间戳
+ @param successBlock 成功回调
+ @param errorBlock 失败回调
+ */
+- (void)syncConversationReadStatus:(RCConversationType)conversationType
+                          targetId:(NSString *)targetId
+                              time:(long long)timestamp
+                           success:(void (^)())successBlock
+                             error:(void (^)(RCErrorCode nErrorCode))errorBlock;
 @end
