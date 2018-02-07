@@ -85,10 +85,18 @@
                                 targetId:(NSString *)targetId
                                  message:(RCMessage *)message
                               readerList:(NSMutableDictionary *)userIdList;
+
+/**
+ 链接状态改变
+
+ @param status 链接状态
+ */
+- (void)onConnectStatusChanged:(RCConnectionStatus)status;
+
 @end
 
 
-@interface IMServiceReceiver : NSObject <RCIMClientReceiveMessageDelegate, RCTypingStatusDelegate>
+@interface IMServiceReceiver : NSObject <RCIMClientReceiveMessageDelegate, RCTypingStatusDelegate, RCConnectionStatusChangeDelegate>
 
 @property (nonatomic, weak) id<IMServiceReceiverDelegate> delegate;
 

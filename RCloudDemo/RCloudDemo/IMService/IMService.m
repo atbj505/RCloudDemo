@@ -17,6 +17,8 @@ static NSString *const RCIMAPPKEY = @"c9kqb3rdkglbj";
 
 @property (nonatomic, strong, readwrite) RCUserInfo *userInfo;
 
+@property (nonatomic, assign, readwrite) RCConnectionStatus connectStatus;
+
 @end
 
 
@@ -38,6 +40,7 @@ static NSString *const RCIMAPPKEY = @"c9kqb3rdkglbj";
         [[RCIMClient sharedRCIMClient] initWithAppKey:RCIMAPPKEY];
         [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self.receiver object:nil];
         [[RCIMClient sharedRCIMClient] setRCTypingStatusDelegate:self.receiver];
+        [[RCIMClient sharedRCIMClient] setRCConnectionStatusChangeDelegate:self.receiver];
     }
     return self;
 }
@@ -53,6 +56,11 @@ static NSString *const RCIMAPPKEY = @"c9kqb3rdkglbj";
         _receiver = [[IMServiceReceiver alloc] init];
     }
     return _receiver;
+}
+
+- (RCConnectionStatus)connectStatus {
+    _connectStatus = [[RCIMClient sharedRCIMClient] getConnectionStatus];
+    return _connectStatus;
 }
 
 @end

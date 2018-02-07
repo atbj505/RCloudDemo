@@ -23,6 +23,11 @@
 @property (nonatomic, strong, readonly) RCUserInfo *userInfo;
 
 /**
+ 链接状态
+ */
+@property (nonatomic, assign, readonly) RCConnectionStatus connectStatus;
+
+/**
  *  单例方法
  *
  *  @return 单例对象

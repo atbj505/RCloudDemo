@@ -26,4 +26,8 @@
     }];
 }
 
+- (void)disconnect {
+    [[RCIMClient sharedRCIMClient] disconnect:false];
+}
+
 @end

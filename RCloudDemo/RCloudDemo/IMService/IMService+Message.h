@@ -11,7 +11,7 @@
 
 @interface IMService (Message)
 
-#pragma mark-- 获取信息
+#pragma mark - 获取信息
 /**
  获取所有本地消息
  
@@ -68,7 +68,7 @@
 - (NSArray<RCMessage *> *)searchMessages:(RCConversationType)conversationType
                                 targetId:(NSString *)targetId
                                  keyword:(NSString *)keyword;
-#pragma mark-- 删除信息
+#pragma mark - 删除信息
 
 /**
  删除信息
@@ -90,7 +90,7 @@
                success:(void (^)(void))successBlock
                  error:(void (^)(RCErrorCode status))errorBlock;
 
-#pragma mark-- 设置消息状态
+#pragma mark - 设置消息状态
 
 /**
  设置接收状态
@@ -112,7 +112,7 @@
 - (BOOL)setMessageSentStatus:(long)messageId
                   sentStatus:(RCSentStatus)sentStatus;
 
-#pragma mark-- 下载&取消
+#pragma mark - 下载&取消
 
 /**
  下载文件
@@ -137,7 +137,7 @@
  */
 - (BOOL)cancelDownloadMediaMessage:(long)messageId;
 
-#pragma mark-- 消息撤回
+#pragma mark - 消息撤回
 
 /**
  消息撤回

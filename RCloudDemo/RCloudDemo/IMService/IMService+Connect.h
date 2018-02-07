@@ -18,4 +18,9 @@
  */
 - (void)connectWithToken:(NSString *)token;
 
+/**
+ 断开与融云服务器的链接
+ */
+- (void)disconnect;
+
 @end

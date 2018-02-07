@@ -57,7 +57,7 @@ const char kAudioRecorder;
     [self.audioRecorder deleteRecording];
 }
 
-#pragma mark Setter&&Getter
+#pragma mark - Setter&&Getter
 
 - (AVAudioRecorder *)audioRecorder {
     return objc_getAssociatedObject(self, &kAudioRecorder);

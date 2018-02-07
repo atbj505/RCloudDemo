@@ -15,7 +15,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
 
 @interface IMService (SendMessage)
 
-#pragma mark-- 文字消息
+#pragma mark - 文字消息
 /**
  发送单人文字消息
  
@@ -42,7 +42,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
                 success:(sendSuccessBlock)successBlock
                   error:(sendErrorBlock)errorBlock;
 
-#pragma mark-- 图片消息
+#pragma mark - 图片消息
 /**
  发送单人图片消息
  
@@ -109,7 +109,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
                  success:(sendSuccessBlock)successBlock
                    error:(sendErrorBlock)errorBlock;
 
-#pragma mark-- 语音消息
+#pragma mark - 语音消息
 /**
  发送单人语音消息
  
@@ -144,7 +144,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
                  success:(sendSuccessBlock)successBlock
                    error:(sendErrorBlock)errorBlock;
 
-#pragma mark-- 文件消息
+#pragma mark - 文件消息
 /**
  发送单人文件消息
  
@@ -202,7 +202,43 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
                 success:(sendSuccessBlock)successBlock
                   error:(sendErrorBlock)errorBlock;
 
-#pragma mark-- @消息
+#pragma mark - 位置消息
+
+/**
+ 发送单人位置信息
+
+ @param userId 用户ID
+ @param location 经纬度
+ @param name 位置名称
+ @param image 位置图片
+ @param successBlock 成功回调
+ @param errorBlock 失败回调
+ */
+- (void)sendLocationUserId:(NSString *)userId
+                  location:(CLLocationCoordinate2D)location
+              locationName:(NSString *)name
+            thumbnailImage:(UIImage *)image
+                   success:(sendSuccessBlock)successBlock
+                     error:(sendErrorBlock)errorBlock;
+
+/**
+ 发送群组位置信息
+ 
+ @param userId 用户ID
+ @param location 经纬度
+ @param name 位置名称
+ @param image 位置图片
+ @param successBlock 成功回调
+ @param errorBlock 失败回调
+ */
+- (void)sendLocationGroupId:(NSString *)groupId
+                   location:(CLLocationCoordinate2D)location
+               locationName:(NSString *)name
+             thumbnailImage:(UIImage *)image
+                    success:(sendSuccessBlock)successBlock
+                      error:(sendErrorBlock)errorBlock;
+
+#pragma mark - @消息
 /**
  发送@消息
 
@@ -220,7 +256,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
               success:(sendSuccessBlock)successBlock
                 error:(sendErrorBlock)errorBlock;
 
-#pragma mark-- 发送消息已读
+#pragma mark - 发送消息已读
 
 /**
  单聊消息已读回执

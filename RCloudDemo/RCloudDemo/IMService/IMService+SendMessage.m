@@ -151,6 +151,30 @@
     [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_GROUP targetId:groupId content:fileMessage pushContent:nil pushData:nil success:successBlock error:errorBlock];
 }
 
+- (void)sendLocationUserId:(NSString *)userId
+                  location:(CLLocationCoordinate2D)location
+              locationName:(NSString *)name
+            thumbnailImage:(UIImage *)image
+                   success:(sendSuccessBlock)successBlock
+                     error:(sendErrorBlock)errorBlock {
+    RCLocationMessage *locationMessage = [RCLocationMessage messageWithLocationImage:image location:location locationName:name];
+    locationMessage.senderUserInfo = self.userInfo;
+
+    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE targetId:userId content:locationMessage pushContent:nil pushData:nil success:successBlock error:errorBlock];
+}
+
+- (void)sendLocationGroupId:(NSString *)groupId
+                   location:(CLLocationCoordinate2D)location
+               locationName:(NSString *)name
+             thumbnailImage:(UIImage *)image
+                    success:(sendSuccessBlock)successBlock
+                      error:(sendErrorBlock)errorBlock {
+    RCLocationMessage *locationMessage = [RCLocationMessage messageWithLocationImage:image location:location locationName:name];
+    locationMessage.senderUserInfo = self.userInfo;
+
+    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_GROUP targetId:groupId content:locationMessage pushContent:nil pushData:nil success:successBlock error:errorBlock];
+}
+
 - (void)sendGroupIdId:(NSString *)groupId
         mentionedType:(RCMentionedType)type
            userIdList:(NSArray *)userIdList

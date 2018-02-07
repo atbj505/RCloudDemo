@@ -23,6 +23,7 @@
     return self;
 }
 
+#pragma mark - RCIMClientReceiveMessageDelegate
 - (void)onReceived:(RCMessage *)message left:(int)nLeft object:(id)object {
     if ([message.content isMemberOfClass:[RCTextMessage class]]) {
         RCTextMessage *textMessage = (RCTextMessage *)message.content;
@@ -47,31 +48,11 @@
     }
 }
 
-- (void)onTypingStatusChanged:(RCConversationType)conversationType
-                     targetId:(NSString *)targetId
-                       status:(NSArray *)userTypingStatusList {
-    if (userTypingStatusList) {
-        RCUserTypingStatus *typeStatus = [userTypingStatusList lastObject];
-        if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedTypingStatusChanged:targetId:userId:contentType:)]) {
-            [self.delegate onReceivedTypingStatusChanged:conversationType targetId:targetId userId:typeStatus.userId contentType:typeStatus.contentType];
-        }
-    }
-}
-
 - (void)onMessageRecalled:(long)messageId {
     RCMessage *message = [[RCIMClient sharedRCIMClient] getMessage:messageId];
     RCRecallNotificationMessage *recalledMessage = (RCRecallNotificationMessage *)message.content;
     if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedRecalledMessage:content:)]) {
         [self.delegate onReceivedRecalledMessage:message content:recalledMessage];
-    }
-}
-
-- (void)ReadReceiptMessage:(NSNotification *)notification {
-    NSNumber *ctype = [notification.userInfo objectForKey:@"cType"];
-    NSNumber *time = [notification.userInfo objectForKey:@"messageTime"];
-    NSString *targetId = [notification.userInfo objectForKey:@"tId"];
-    if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedReadReceiptMessage:targetId:time:)]) {
-        [self.delegate onReceivedReadReceiptMessage:[ctype integerValue] targetId:targetId time:[time longLongValue]];
     }
 }
 
@@ -93,4 +74,37 @@
         [self.delegate onReceivedMessageReceiptResponse:conversationType targetId:targetId message:message readerList:userIdList];
     }
 }
+
+#pragma mark - RCTypingStatusDelegate
+
+- (void)onTypingStatusChanged:(RCConversationType)conversationType
+                     targetId:(NSString *)targetId
+                       status:(NSArray *)userTypingStatusList {
+    if (userTypingStatusList) {
+        RCUserTypingStatus *typeStatus = [userTypingStatusList lastObject];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedTypingStatusChanged:targetId:userId:contentType:)]) {
+            [self.delegate onReceivedTypingStatusChanged:conversationType targetId:targetId userId:typeStatus.userId contentType:typeStatus.contentType];
+        }
+    }
+}
+
+#pragma mark - RCLibDispatchReadReceiptNotification
+
+- (void)ReadReceiptMessage:(NSNotification *)notification {
+    NSNumber *ctype = [notification.userInfo objectForKey:@"cType"];
+    NSNumber *time = [notification.userInfo objectForKey:@"messageTime"];
+    NSString *targetId = [notification.userInfo objectForKey:@"tId"];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedReadReceiptMessage:targetId:time:)]) {
+        [self.delegate onReceivedReadReceiptMessage:[ctype integerValue] targetId:targetId time:[time longLongValue]];
+    }
+}
+
+#pragma mark - RCConnectionStatusChangeDelegate
+
+- (void)onConnectionStatusChanged:(RCConnectionStatus)status {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(onConnectStatusChanged:)]) {
+        [self.delegate onConnectStatusChanged:status];
+    }
+}
+
 @end

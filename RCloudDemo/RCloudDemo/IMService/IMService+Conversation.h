@@ -65,7 +65,7 @@
                     targetId:(NSString *)targetId
                        isTop:(BOOL)isTop;
 
-#pragma mark-- 草稿
+#pragma mark - 草稿
 
 /**
  获取草稿
@@ -99,7 +99,7 @@
 - (BOOL)clearTextMessageDraft:(RCConversationType)conversationType
                      targetId:(NSString *)targetId;
 
-#pragma mark-- 提醒状态
+#pragma mark - 提醒状态
 
 /**
  设置会话提醒状态
@@ -162,7 +162,7 @@
 - (void)removeNotificationQuietHours:(void (^)())successBlock
                                error:(void (^)(RCErrorCode status))errorBlock;
 
-#pragma mark-- 输入状态
+#pragma mark - 输入状态
 
 /**
  发送输入状态
@@ -175,7 +175,7 @@
                 targetId:(NSString *)targetId
              contentType:(NSString *)objectName;
 
-#pragma-- mark 多端阅读消息数同步
+#pragma mark - 多端阅读消息数同步
 
 /**
  多端阅读消息数同步 点击进入会话或者退出会话的时候调用
