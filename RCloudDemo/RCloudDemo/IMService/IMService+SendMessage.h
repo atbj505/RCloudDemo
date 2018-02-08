@@ -21,11 +21,13 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
  
  @param userId       用户ID
  @param content      文字内容
+ @param extra        附加信息
  @param successBlock 成功回调
  @param errorBlock   失败回调
  */
 - (void)sendTextUserId:(NSString *)userId
                content:(NSString *)content
+                 extra:(NSDictionary *)extra
                success:(sendSuccessBlock)successBlock
                  error:(sendErrorBlock)errorBlock;
 
@@ -34,11 +36,13 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
  
  @param groupId      群组ID
  @param content      文字内容
+ @param extra        附加信息
  @param successBlock 成功回调
  @param errorBlock   失败回调
  */
 - (void)sendTextGroupId:(NSString *)groupId
                 content:(NSString *)content
+                  extra:(NSDictionary *)extra
                 success:(sendSuccessBlock)successBlock
                   error:(sendErrorBlock)errorBlock;
 
@@ -49,6 +53,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
  @param userId        用户ID
  @param image         图片（UIImage）
  @param full          是否原图
+ @param extra         附加信息
  @param progressBlock 进度回调
  @param successBlock  成功回调
  @param errorBlock    失败回调
@@ -56,6 +61,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
 - (void)sendImageUserId:(NSString *)userId
                   image:(UIImage *)image
                    full:(BOOL)isFull
+                  extra:(NSDictionary *)extra
                progress:(sendProgressBlock)progressBlock
                 success:(sendSuccessBlock)successBlock
                   error:(sendErrorBlock)errorBlock;
@@ -66,6 +72,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
  @param groupId       群组ID
  @param image         图片（UIImage）
  @param full          是否原图
+ @param extra         附加信息
  @param progressBlock 进度回调
  @param successBlock  成功回调
  @param errorBlock    失败回调
@@ -73,6 +80,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
 - (void)sendImageGroupId:(NSString *)groupId
                    image:(UIImage *)image
                     full:(BOOL)isFull
+                   extra:(NSDictionary *)extra
                 progress:(sendProgressBlock)progressBlock
                  success:(sendSuccessBlock)successBlock
                    error:(sendErrorBlock)errorBlock;
@@ -83,6 +91,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
  @param userId        用户ID
  @param imageUrl      图片URL（图片上传成功后服务器返回的URL）
  @param full          是否原图
+ @param extra         附加信息
  @param progressBlock 进度回调
  @param successBlock  成功回调
  @param errorBlock    失败回调
@@ -90,6 +99,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
 - (void)sendImageUserId:(NSString *)userId
                imageUrl:(NSString *)imageUrl
                    full:(BOOL)isFull
+                  extra:(NSDictionary *)extra
                 success:(sendSuccessBlock)successBlock
                   error:(sendErrorBlock)errorBlock;
 
@@ -99,6 +109,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
  @param groupId       群组ID
  @param imageUrl      图片URL（图片上传成功后服务器返回的URL）
  @param full          是否原图
+ @param extra         附加信息
  @param progressBlock 进度回调
  @param successBlock  成功回调
  @param errorBlock    失败回调
@@ -106,6 +117,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
 - (void)sendImageGroupId:(NSString *)groupId
                 imageUrl:(NSString *)imageUrl
                     full:(BOOL)isFull
+                   extra:(NSDictionary *)extra
                  success:(sendSuccessBlock)successBlock
                    error:(sendErrorBlock)errorBlock;
 
@@ -116,6 +128,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
  @param userId       用户ID
  @param fileUrl      语音文件本地URL
  @param duration     语音长度
+ @param extra         附加信息
  @param progressBlock 进度回调
  @param successBlock 成功回调
  @param errorBlock   失败回调
@@ -123,6 +136,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
 - (void)sendVoiceUserId:(NSString *)userId
                 fileUrl:(NSString *)fileUrl
                duration:(long)duration
+                  extra:(NSDictionary *)extra
                progress:(sendProgressBlock)progressBlock
                 success:(sendSuccessBlock)successBlock
                   error:(sendErrorBlock)errorBlock;
@@ -133,6 +147,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
  @param groupId      群组ID
  @param fileUrl      语音文件本地URL
  @param duration     语音长度
+ @param extra         附加信息
  @param progressBlock 进度回调
  @param successBlock 成功回调
  @param errorBlock   失败回调
@@ -140,6 +155,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
 - (void)sendVoiceGroupId:(NSString *)groupId
                  fileUrl:(NSString *)fileUrl
                 duration:(long)duration
+                   extra:(NSDictionary *)extra
                 progress:(sendProgressBlock)progressBlock
                  success:(sendSuccessBlock)successBlock
                    error:(sendErrorBlock)errorBlock;
@@ -150,12 +166,14 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
  
  @param userId 用户ID
  @param fileUrl 文件本地URL
+ @param extra 附加信息
  @param progressBlock 进度回调
  @param successBlock 成功回调
  @param errorBlock  失败回调
  */
 - (void)sendFileUserId:(NSString *)userId
                fileUrl:(NSString *)fileUrl
+                 extra:(NSDictionary *)extra
               progress:(sendProgressBlock)progressBlock
                success:(sendSuccessBlock)successBlock
                  error:(sendErrorBlock)errorBlock;
@@ -165,12 +183,14 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
  
  @param groupId 群组ID
  @param fileUrl 文件本地URL
+ @param extra 附加信息
  @param progressBlock 进度回调
  @param successBlock 成功回调
  @param errorBlock 失败回调
  */
 - (void)sendFileGroupId:(NSString *)groupId
                 fileUrl:(NSString *)fileUrl
+                  extra:(NSDictionary *)extra
                progress:(sendProgressBlock)progressBlock
                 success:(sendSuccessBlock)successBlock
                   error:(sendErrorBlock)errorBlock;
@@ -181,11 +201,13 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
  
  @param userId 用户ID
  @param fileUrl 文件URL（文件上传成功后服务器返回的URL）
+ @param extra 附加信息
  @param successBlock 成功回调
  @param errorBlock 失败回调
  */
 - (void)sendFileUserId:(NSString *)userId
        uploadedFileUrl:(NSString *)fileUrl
+                 extra:(NSDictionary *)extra
                success:(sendSuccessBlock)successBlock
                  error:(sendErrorBlock)errorBlock;
 
@@ -194,11 +216,13 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
  
  @param groupId 群组ID
  @param fileUrl 文件URL（文件上传成功后服务器返回的URL）
+ @param extra 附加信息
  @param successBlock 成功回调
  @param errorBlock 失败回调
  */
 - (void)sendFileGroupId:(NSString *)groupId
         uploadedFileUrl:(NSString *)fileUrl
+                  extra:(NSDictionary *)extra
                 success:(sendSuccessBlock)successBlock
                   error:(sendErrorBlock)errorBlock;
 
@@ -211,6 +235,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
  @param location 经纬度
  @param name 位置名称
  @param image 位置图片
+ @param extra 附加信息
  @param successBlock 成功回调
  @param errorBlock 失败回调
  */
@@ -218,16 +243,18 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
                   location:(CLLocationCoordinate2D)location
               locationName:(NSString *)name
             thumbnailImage:(UIImage *)image
+                     extra:(NSDictionary *)extra
                    success:(sendSuccessBlock)successBlock
                      error:(sendErrorBlock)errorBlock;
 
 /**
  发送群组位置信息
  
- @param userId 用户ID
+ @param groupId 群组ID
  @param location 经纬度
  @param name 位置名称
  @param image 位置图片
+ @param extra 附加信息
  @param successBlock 成功回调
  @param errorBlock 失败回调
  */
@@ -235,8 +262,53 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
                    location:(CLLocationCoordinate2D)location
                locationName:(NSString *)name
              thumbnailImage:(UIImage *)image
+                      extra:(NSDictionary *)extra
                     success:(sendSuccessBlock)successBlock
                       error:(sendErrorBlock)errorBlock;
+
+#pragma mark - 富文本消息
+
+/**
+ 发送单人富文本消息
+
+ @param userId 用户ID
+ @param title 标题
+ @param digest 内容概述
+ @param imageURL 图片URL
+ @param url 链接URL
+ @param extra 附加信息
+ @param successBlock 成功回调
+ @param errorBlock 失败回调
+ */
+- (void)sendRichContentUserId:(NSString *)userId
+                        title:(NSString *)title
+                       digest:(NSString *)digest
+                     imageURL:(NSString *)imageURL
+                          url:(NSString *)url
+                        extra:(NSDictionary *)extra
+                      success:(sendSuccessBlock)successBlock
+                        error:(sendErrorBlock)errorBlock;
+
+/**
+ 发送群组富文本消息
+ 
+ @param groupId 群组ID
+ @param title 标题
+ @param digest 内容概述
+ @param imageURL 图片URL
+ @param url 链接URL
+ @param extra 附加信息
+ @param successBlock 成功回调
+ @param errorBlock 失败回调
+ */
+- (void)sendRichContentGroupId:(NSString *)groupId
+                         title:(NSString *)title
+                        digest:(NSString *)digest
+                      imageURL:(NSString *)imageURL
+                           url:(NSString *)url
+                         extra:(NSDictionary *)extra
+                       success:(sendSuccessBlock)successBlock
+                         error:(sendErrorBlock)errorBlock;
 
 #pragma mark - @消息
 /**
@@ -246,6 +318,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
  @param type @消息类型
  @param userIdList 用户列表，如果是@所有人，则传nil
  @param mentionedContent 提醒内容
+ @param extra 附加信息
  @param successBlock 成功回调
  @param errorBlock 失败回调
  */
@@ -253,6 +326,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
         mentionedType:(RCMentionedType)type
            userIdList:(NSArray *)userIdList
      mentionedContent:(NSString *)mentionedContent
+                extra:(NSDictionary *)extra
               success:(sendSuccessBlock)successBlock
                 error:(sendErrorBlock)errorBlock;
 
