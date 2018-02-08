@@ -310,6 +310,63 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
                        success:(sendSuccessBlock)successBlock
                          error:(sendErrorBlock)errorBlock;
 
+#pragma mark - 命令消息
+
+/**
+ 发送单人命令消息
+
+ @param userId 用户ID
+ @param name 命令名
+ @param data 命令数据（字典 -> json字符串）
+ @param isSave 是否存储
+ @param successBlock 成功回调
+ @param errorBlock 失败回调
+ */
+- (void)sendCommandUserId:(NSString *)userId
+                     name:(NSString *)name
+                     data:(NSDictionary *)data
+                     save:(BOOL)isSave
+                  success:(sendSuccessBlock)successBlock
+                    error:(sendErrorBlock)errorBlock;
+
+/**
+ 发送群组命令信息
+
+ @param groupId 群组ID
+ @param name 命令名
+ @param data 命令数据（字典 -> json字符串）
+ @param isSave 是否存储
+ @param successBlock 成功回调
+ @param errorBlock 失败回调
+ */
+- (void)sendCommandGroupId:(NSString *)groupId
+                      name:(NSString *)name
+                      data:(NSDictionary *)data
+                      save:(BOOL)isSave
+                   success:(sendSuccessBlock)successBlock
+                     error:(sendErrorBlock)errorBlock;
+
+#pragma mark - 好友请求消息
+
+/**
+ 好友请求消息
+
+ @param operation 操作类型
+ @param sourceUserId 请求发起者ID
+ @param targetUserId 请求目标者ID
+ @param message 请求信息
+ @param extra 附加信息
+ @param successBlock 成功回调
+ @param errorBlock 失败回调
+ */
+- (void)sendContactNotificationOperation:(NSString *)operation
+                            sourceUserId:(NSString *)sourceUserId
+                            targetUserId:(NSString *)targetUserId
+                                 message:(NSString *)message
+                                   extra:(NSDictionary *)extra
+                                 success:(sendSuccessBlock)successBlock
+                                   error:(sendErrorBlock)errorBlock;
+
 #pragma mark - @消息
 /**
  发送@消息
@@ -322,13 +379,13 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
  @param successBlock 成功回调
  @param errorBlock 失败回调
  */
-- (void)sendGroupIdId:(NSString *)groupId
-        mentionedType:(RCMentionedType)type
-           userIdList:(NSArray *)userIdList
-     mentionedContent:(NSString *)mentionedContent
-                extra:(NSDictionary *)extra
-              success:(sendSuccessBlock)successBlock
-                error:(sendErrorBlock)errorBlock;
+- (void)sendGroupId:(NSString *)groupId
+      mentionedType:(RCMentionedType)type
+         userIdList:(NSArray *)userIdList
+   mentionedContent:(NSString *)mentionedContent
+              extra:(NSDictionary *)extra
+            success:(sendSuccessBlock)successBlock
+              error:(sendErrorBlock)errorBlock;
 
 #pragma mark - 发送消息已读
 

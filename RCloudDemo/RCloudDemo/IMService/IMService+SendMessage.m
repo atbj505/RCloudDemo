@@ -259,13 +259,62 @@
     [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_GROUP targetId:groupId content:richContentMessage pushContent:nil pushData:nil success:successBlock error:errorBlock];
 }
 
-- (void)sendGroupIdId:(NSString *)groupId
-        mentionedType:(RCMentionedType)type
-           userIdList:(NSArray *)userIdList
-     mentionedContent:(NSString *)mentionedContent
-                extra:(NSDictionary *)extra
-              success:(sendSuccessBlock)successBlock
-                error:(sendErrorBlock)errorBlock {
+- (void)sendCommandUserId:(NSString *)userId
+                     name:(NSString *)name
+                     data:(NSDictionary *)data
+                     save:(BOOL)isSave
+                  success:(sendSuccessBlock)successBlock
+                    error:(sendErrorBlock)errorBlock {
+    NSString *extraStr = [self getExtraInfo:data];
+    RCMessageContent *commandMessage;
+    if (isSave) {
+        commandMessage = [RCCommandNotificationMessage notificationWithName:name data:extraStr];
+    } else {
+        commandMessage = [RCCommandMessage messageWithName:name data:extraStr];
+    }
+    commandMessage.senderUserInfo = self.userInfo;
+
+    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE targetId:userId content:commandMessage pushContent:nil pushData:nil success:successBlock error:errorBlock];
+}
+
+- (void)sendCommandGroupId:(NSString *)groupId
+                      name:(NSString *)name
+                      data:(NSDictionary *)data
+                      save:(BOOL)isSave
+                   success:(sendSuccessBlock)successBlock
+                     error:(sendErrorBlock)errorBlock {
+    NSString *extraStr = [self getExtraInfo:data];
+    RCMessageContent *commandMessage;
+    if (isSave) {
+        commandMessage = [RCCommandNotificationMessage notificationWithName:name data:extraStr];
+    } else {
+        commandMessage = [RCCommandMessage messageWithName:name data:extraStr];
+    }
+    commandMessage.senderUserInfo = self.userInfo;
+
+    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_GROUP targetId:groupId content:commandMessage pushContent:nil pushData:nil success:successBlock error:errorBlock];
+}
+
+- (void)sendContactNotificationOperation:(NSString *)operation
+                            sourceUserId:(NSString *)sourceUserId
+                            targetUserId:(NSString *)targetUserId
+                                 message:(NSString *)message
+                                   extra:(NSDictionary *)extra
+                                 success:(sendSuccessBlock)successBlock
+                                   error:(sendErrorBlock)errorBlock {
+    NSString *extraStr = [self getExtraInfo:extra];
+    RCContactNotificationMessage *contactMessage = [RCContactNotificationMessage notificationWithOperation:operation sourceUserId:sourceUserId targetUserId:targetUserId message:message extra:extraStr];
+
+    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE targetId:targetUserId content:contactMessage pushContent:nil pushData:nil success:successBlock error:errorBlock];
+}
+
+- (void)sendGroupId:(NSString *)groupId
+      mentionedType:(RCMentionedType)type
+         userIdList:(NSArray *)userIdList
+   mentionedContent:(NSString *)mentionedContent
+              extra:(NSDictionary *)extra
+            success:(sendSuccessBlock)successBlock
+              error:(sendErrorBlock)errorBlock {
     RCMentionedInfo *mentionInfo = [[RCMentionedInfo alloc] initWithMentionedType:type userIdList:userIdList mentionedContent:mentionedContent];
 
     NSString *extraStr = [self getExtraInfo:extra];

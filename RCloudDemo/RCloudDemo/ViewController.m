@@ -29,7 +29,7 @@
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [[IMService sharedIMService] sendTextUserId:@"080904" content:@"test" success:^(long messageId) {
+    [[IMService sharedIMService] sendTextUserId:@"080904" content:@"test" extra:nil success:^(long messageId) {
         dispatch_async(dispatch_get_main_queue(), ^{
             NSString *string = self.label.text;
             if (!string) {
