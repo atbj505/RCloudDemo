@@ -12,6 +12,10 @@
 
 @interface IMService : NSObject
 
+typedef void (^sendProgressBlock)(int progress, long messageId);
+typedef void (^sendSuccessBlock)(long messageId);
+typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
+
 /**
  消息回调接受者
  */

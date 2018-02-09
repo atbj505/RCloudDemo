@@ -14,6 +14,9 @@
 - (void)connectWithToken:(NSString *)token {
     [[RCIMClient sharedRCIMClient] connectWithToken:token success:^(NSString *userId) {
         NSLog(@"success:%@", userId);
+        //设置当前用户ID
+        [RCIMClient sharedRCIMClient].currentUserInfo.userId = userId;
+        //设置离线消息补偿时间
         [[RCIMClient sharedRCIMClient] setOfflineMessageDuration:3 success:^{
 
         } failure:^(RCErrorCode nErrorCode){

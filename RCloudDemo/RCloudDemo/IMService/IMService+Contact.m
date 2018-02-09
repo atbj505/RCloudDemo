@@ -7,35 +7,36 @@
 //
 
 #import "IMService+Contact.h"
+#import "IMService+SendMessage.h"
 
 
 @implementation IMService (Contact)
 
-- (void)ContactRequestSourceUserId:(NSString *)sourceUserId
-                      targetUserId:(NSString *)targetUserId
+- (void)ContactRequestTargetUserId:(NSString *)targetUserId
                            message:(NSString *)message
                              extra:(NSDictionary *)extra
                            success:(sendSuccessBlock)successBlock
                              error:(sendErrorBlock)errorBlock {
-    [self sendContactNotificationOperation:ContactNotificationMessage_ContactOperationRequest sourceUserId:sourceUserId targetUserId:targetUserId message:message extra:extra success:successBlock error:errorBlock];
+    NSString *currentUserId = [RCIMClient sharedRCIMClient].currentUserInfo.userId;
+    [self sendContactNotificationOperation:ContactNotificationMessage_ContactOperationRequest sourceUserId:currentUserId targetUserId:targetUserId message:message extra:extra success:successBlock error:errorBlock];
 }
 
-- (void)ContactAcceptResponseSourceUserId:(NSString *)sourceUserId
-                             targetUserId:(NSString *)targetUserId
+- (void)ContactAcceptResponseTargetUserId:(NSString *)targetUserId
                                   message:(NSString *)message
                                     extra:(NSDictionary *)extra
                                   success:(sendSuccessBlock)successBlock
                                     error:(sendErrorBlock)errorBlock {
-    [self sendContactNotificationOperation:ContactNotificationMessage_ContactOperationAcceptResponse sourceUserId:sourceUserId targetUserId:targetUserId message:message extra:extra success:successBlock error:errorBlock];
+    NSString *currentUserId = [RCIMClient sharedRCIMClient].currentUserInfo.userId;
+    [self sendContactNotificationOperation:ContactNotificationMessage_ContactOperationAcceptResponse sourceUserId:currentUserId targetUserId:targetUserId message:message extra:extra success:successBlock error:errorBlock];
 }
 
-- (void)ContactRejectResponseSourceUserId:(NSString *)sourceUserId
-                             targetUserId:(NSString *)targetUserId
+- (void)ContactRejectResponseTargetUserId:(NSString *)targetUserId
                                   message:(NSString *)message
                                     extra:(NSDictionary *)extra
                                   success:(sendSuccessBlock)successBlock
                                     error:(sendErrorBlock)errorBlock {
-    [self sendContactNotificationOperation:ContactNotificationMessage_ContactOperationRejectResponse sourceUserId:sourceUserId targetUserId:targetUserId message:message extra:extra success:successBlock error:errorBlock];
+    NSString *currentUserId = [RCIMClient sharedRCIMClient].currentUserInfo.userId;
+    [self sendContactNotificationOperation:ContactNotificationMessage_ContactOperationRejectResponse sourceUserId:currentUserId targetUserId:targetUserId message:message extra:extra success:successBlock error:errorBlock];
 }
 
 @end

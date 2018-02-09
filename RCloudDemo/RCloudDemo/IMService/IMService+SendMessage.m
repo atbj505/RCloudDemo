@@ -304,8 +304,24 @@
                                    error:(sendErrorBlock)errorBlock {
     NSString *extraStr = [self getExtraInfo:extra];
     RCContactNotificationMessage *contactMessage = [RCContactNotificationMessage notificationWithOperation:operation sourceUserId:sourceUserId targetUserId:targetUserId message:message extra:extraStr];
+    contactMessage.senderUserInfo = self.userInfo;
 
     [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE targetId:targetUserId content:contactMessage pushContent:nil pushData:nil success:successBlock error:errorBlock];
+}
+
+- (void)sendGroupNotificationGroupId:(NSString *)groupId
+                           Operation:(NSString *)operation
+                      operatorUserId:(NSString *)operatorUserId
+                                data:(NSString *)data
+                             message:(NSString *)message
+                               extra:(NSDictionary *)extra
+                             success:(sendSuccessBlock)successBlock
+                               error:(sendErrorBlock)errorBlock {
+    NSString *extraStr = [self getExtraInfo:extra];
+    RCGroupNotificationMessage *groupMessage = [RCGroupNotificationMessage notificationWithOperation:operation operatorUserId:operatorUserId data:data message:message extra:extraStr];
+    groupMessage.senderUserInfo = self.userInfo;
+
+    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_GROUP targetId:groupId content:groupMessage pushContent:nil pushData:nil success:successBlock error:errorBlock];
 }
 
 - (void)sendGroupId:(NSString *)groupId

@@ -54,7 +54,7 @@
     BOOL result = [[RCIMClient sharedRCIMClient] removeConversation:conversationType targetId:targetId];
     if (result) {
         if (isDeleteMessage) {
-            [[[self class] sharedIMService] deleteMessages:conversationType targetId:targetId messages:nil sync:isSync success:successBlock error:errorBlock];
+            [self deleteMessages:conversationType targetId:targetId messages:nil sync:isSync success:successBlock error:errorBlock];
         } else {
             successBlock();
         }
@@ -90,7 +90,7 @@
                                   success:(void (^)(RCConversationNotificationStatus nStatus))successBlock
                                     error:(void (^)(RCErrorCode status))errorBlock {
     //获取会话当前提醒状态
-    [[[self class] sharedIMService] getConversationNotificationStatus:conversationType targetId:targetId success:^(RCConversationNotificationStatus nStatus) {
+    [self getConversationNotificationStatus:conversationType targetId:targetId success:^(RCConversationNotificationStatus nStatus) {
         //设置会话提醒状态
         [[RCIMClient sharedRCIMClient] setConversationNotificationStatus:conversationType targetId:targetId isBlocked:!nStatus success:successBlock error:errorBlock];
     } error:^(RCErrorCode status) {

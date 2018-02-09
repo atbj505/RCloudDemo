@@ -8,10 +8,6 @@
 
 #import "IMService.h"
 
-typedef void (^sendProgressBlock)(int progress, long messageId);
-typedef void (^sendSuccessBlock)(long messageId);
-typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
-
 
 @interface IMService (SendMessage)
 
@@ -354,7 +350,7 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
  @param operation 操作类型
  @param sourceUserId 请求发起者ID
  @param targetUserId 请求目标者ID
- @param message 请求信息
+ @param message 请求消息
  @param extra 附加信息
  @param successBlock 成功回调
  @param errorBlock 失败回调
@@ -366,6 +362,29 @@ typedef void (^sendErrorBlock)(RCErrorCode errorcode, long messageId);
                                    extra:(NSDictionary *)extra
                                  success:(sendSuccessBlock)successBlock
                                    error:(sendErrorBlock)errorBlock;
+
+#pragma mark - 群组通知消息
+
+/**
+ 群组通知消息
+
+ @param groupID 群组ID
+ @param operation 操作类型
+ @param operatorUserId 操作发起用户ID
+ @param data 目标数据（想要修改的数据）
+ @param message 请求消息
+ @param extra 附加信息
+ @param successBlock 成功回调
+ @param errorBlock 失败回调
+ */
+- (void)sendGroupNotificationGroupId:(NSString *)groupId
+                           Operation:(NSString *)operation
+                      operatorUserId:(NSString *)operatorUserId
+                                data:(NSString *)data
+                             message:(NSString *)message
+                               extra:(NSDictionary *)extra
+                             success:(sendSuccessBlock)successBlock
+                               error:(sendErrorBlock)errorBlock;
 
 #pragma mark - @消息
 /**
