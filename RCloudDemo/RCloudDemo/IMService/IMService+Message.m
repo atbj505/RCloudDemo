@@ -59,6 +59,18 @@
     return [[RCIMClient sharedRCIMClient] searchMessages:conversationType targetId:targetId keyword:keyword count:10 startTime:0];
 }
 
+- (NSArray *)getUnreadMentionedMessages:(RCConversationType)conversationType targetId:(NSString *)targetId {
+    return [[RCIMClient sharedRCIMClient] getUnreadMentionedMessages:conversationType targetId:targetId];
+}
+
+- (RCMessage *)getMessage:(long)messageId {
+    return [[RCIMClient sharedRCIMClient] getMessage:messageId];
+}
+
+- (RCMessage *)getMessageByUId:(NSString *)messageUId {
+    return [[RCIMClient sharedRCIMClient] getMessageByUId:messageUId];
+}
+
 - (void)deleteMessages:(RCConversationType)conversationType
               targetId:(NSString *)targetId
               messages:(NSArray *)messages
@@ -108,6 +120,10 @@
                        error:(void (^)(RCErrorCode errorCode))errorBlock
                       cancel:(void (^)(void))cancelBlock {
     [[RCIMClient sharedRCIMClient] downloadMediaMessage:messageId progress:progressBlock success:successBlock error:errorBlock cancel:cancelBlock];
+}
+
+- (BOOL)cancelSendMediaMessage:(long)messageId {
+    return [[RCIMClient sharedRCIMClient] cancelSendMediaMessage:messageId];
 }
 
 - (BOOL)cancelDownloadMediaMessage:(long)messageId {

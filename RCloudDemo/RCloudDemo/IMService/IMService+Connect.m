@@ -33,4 +33,12 @@
     [[RCIMClient sharedRCIMClient] disconnect:false];
 }
 
+- (RCConnectionStatus)getConnectionStatus {
+    return [[RCIMClient sharedRCIMClient] getConnectionStatus];
+}
+
+- (RCNetworkStatus)getCurrentNetworkStatus {
+    return [[RCIMClient sharedRCIMClient] getCurrentNetworkStatus];
+}
+
 @end

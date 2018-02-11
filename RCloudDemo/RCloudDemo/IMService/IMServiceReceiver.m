@@ -49,7 +49,7 @@
 }
 
 - (void)onMessageRecalled:(long)messageId {
-    RCMessage *message = [[RCIMClient sharedRCIMClient] getMessage:messageId];
+    RCMessage *message = [[IMService sharedIMService] getMessage:messageId];
     RCRecallNotificationMessage *recalledMessage = (RCRecallNotificationMessage *)message.content;
     if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedRecalledMessage:content:)]) {
         [self.delegate onReceivedRecalledMessage:message content:recalledMessage];
@@ -59,7 +59,7 @@
 - (void)onMessageReceiptRequest:(RCConversationType)conversationType
                        targetId:(NSString *)targetId
                      messageUId:(NSString *)messageUId {
-    RCMessage *message = [[RCIMClient sharedRCIMClient] getMessageByUId:messageUId];
+    RCMessage *message = [[IMService sharedIMService] getMessageByUId:messageUId];
     if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedMessageReceiptRequest:targetId:message:)]) {
         [self.delegate onReceivedMessageReceiptRequest:conversationType targetId:targetId message:message];
     }

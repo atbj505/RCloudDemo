@@ -23,4 +23,14 @@
  */
 - (void)disconnect;
 
+/**
+ 获取当前链接状态
+ */
+- (RCConnectionStatus)getConnectionStatus;
+
+/**
+ 获取当前网络状态
+ */
+- (RCNetworkStatus)getCurrentNetworkStatus;
+
 @end

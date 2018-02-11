@@ -68,6 +68,32 @@
 - (NSArray<RCMessage *> *)searchMessages:(RCConversationType)conversationType
                                 targetId:(NSString *)targetId
                                  keyword:(NSString *)keyword;
+
+/**
+ 获取未读@消息
+
+ @param conversationType 会话类型
+ @param targetId 会话ID
+ @return 未读@消息
+ */
+- (NSArray *)getUnreadMentionedMessages:(RCConversationType)conversationType targetId:(NSString *)targetId;
+
+/**
+ 根据消息ID获取消息
+
+ @param messageId 消息ID
+ @return 消息
+ */
+- (RCMessage *)getMessage:(long)messageId;
+
+/**
+ 根据消息UID获取消息
+
+ @param messageUId 消息UID
+ @return 消息
+ */
+- (RCMessage *)getMessageByUId:(NSString *)messageUId;
+
 #pragma mark - 删除信息
 
 /**
@@ -130,12 +156,21 @@
                       cancel:(void (^)(void))cancelBlock;
 
 /**
- 取消下载文件
+ 取消发送中的媒体信息
+
+ @param messageId 消息ID
+ @return 取消成功/失败
+ */
+- (BOOL)cancelSendMediaMessage:(long)messageId;
+
+/**
+ 取消下载媒体信息
 
  @param messageId 消息ID
  @return 取消成功/失败
  */
 - (BOOL)cancelDownloadMediaMessage:(long)messageId;
+
 
 #pragma mark - 消息撤回
 
