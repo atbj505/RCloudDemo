@@ -14,12 +14,7 @@
 
 - (NSArray *)getConversationLists {
     NSArray *conversationList = [[RCIMClient sharedRCIMClient]
-        getConversationList:@[ @(ConversationType_PRIVATE),
-                               @(ConversationType_DISCUSSION),
-                               @(ConversationType_GROUP),
-                               @(ConversationType_SYSTEM),
-                               @(ConversationType_APPSERVICE),
-                               @(ConversationType_PUBLICSERVICE) ]];
+        getConversationList:[self defaultConversationTypes]];
     return conversationList;
 }
 
@@ -30,12 +25,7 @@
 }
 
 - (NSArray<RCSearchConversationResult *> *)searchConversationskeyword:(NSString *)keyword {
-    NSArray *conversationType = @[ @(ConversationType_PRIVATE),
-                                   @(ConversationType_DISCUSSION),
-                                   @(ConversationType_GROUP),
-                                   @(ConversationType_SYSTEM),
-                                   @(ConversationType_APPSERVICE),
-                                   @(ConversationType_PUBLICSERVICE) ];
+    NSArray *conversationType = [self defaultConversationTypes];
 
     NSArray *messageType = @[ [RCTextMessage getObjectName],
                               [RCImageMessage getObjectName],
@@ -67,6 +57,18 @@
                     targetId:(NSString *)targetId
                        isTop:(BOOL)isTop {
     return [[RCIMClient sharedRCIMClient] setConversationToTop:conversationType targetId:targetId isTop:isTop];
+}
+
+- (NSArray<RCConversation *> *)getTopConversationList {
+    NSArray *conversationType = [self defaultConversationTypes];
+
+    return [[RCIMClient sharedRCIMClient] getTopConversationList:conversationType];
+}
+
+- (NSArray<RCConversation *> *)getBlockedConversationList {
+    NSArray *conversationType = [self defaultConversationTypes];
+
+    return [[RCIMClient sharedRCIMClient] getBlockedConversationList:conversationType];
 }
 
 - (NSString *)getTextMessageDraft:(RCConversationType)conversationType
@@ -134,6 +136,16 @@
                            success:(void (^)())successBlock
                              error:(void (^)(RCErrorCode nErrorCode))errorBlock {
     [[RCIMClient sharedRCIMClient] syncConversationReadStatus:conversationType targetId:targetId time:timestamp success:successBlock error:errorBlock];
+}
+
+- (NSArray *)defaultConversationTypes {
+    NSArray *conversationList = @[ @(ConversationType_PRIVATE),
+                                   @(ConversationType_DISCUSSION),
+                                   @(ConversationType_GROUP),
+                                   @(ConversationType_SYSTEM),
+                                   @(ConversationType_APPSERVICE),
+                                   @(ConversationType_PUBLICSERVICE) ];
+    return conversationList;
 }
 
 @end

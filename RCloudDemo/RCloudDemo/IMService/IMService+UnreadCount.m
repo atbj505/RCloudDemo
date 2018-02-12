@@ -22,6 +22,18 @@
     return unreadCount;
 }
 
+- (NSArray *)getUnreadConverSations:(NSArray<RCConversation *> *)conversations {
+    NSMutableArray *unreadCounts = [NSMutableArray arrayWithCapacity:conversations.count];
+    for (RCConversation *conversation in conversations) {
+        RCConversationType type = conversation.conversationType;
+        NSString *targetId = conversation.targetId;
+
+        NSInteger unreadCount = [self getUnreadCount:type targetId:targetId];
+        [unreadCounts addObject:@(unreadCount)];
+    }
+    return unreadCounts;
+}
+
 - (void)clearMessagesUnreadStatus:(RCConversationType)conversationType
                          targetId:(NSString *)targetId {
     [[RCIMClient sharedRCIMClient] clearMessagesUnreadStatus:conversationType targetId:targetId];

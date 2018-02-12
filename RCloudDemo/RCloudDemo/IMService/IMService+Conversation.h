@@ -65,6 +65,20 @@
                     targetId:(NSString *)targetId
                        isTop:(BOOL)isTop;
 
+/**
+ 获取置顶的会话
+
+ @return 置顶的会话列表
+ */
+- (NSArray<RCConversation *> *)getTopConversationList;
+
+/**
+ 获取屏蔽消息提醒的会话列表
+
+ @return 屏蔽的会话列表
+ */
+- (NSArray<RCConversation *> *)getBlockedConversationList;
+
 #pragma mark - 草稿
 
 /**

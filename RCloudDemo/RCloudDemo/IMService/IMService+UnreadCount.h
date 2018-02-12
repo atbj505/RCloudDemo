@@ -30,6 +30,14 @@
              targetId:(NSString *)targetId;
 
 /**
+ 获取指定多个会话未读消息
+
+ @param conversations 会话对象数组
+ @return 未读消息列表
+ */
+- (NSArray *)getUnreadConverSations:(NSArray<RCConversation *> *)conversations;
+
+/**
  *  清除未读消息
  *
  *  @param conversationType 会话类型
