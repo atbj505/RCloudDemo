@@ -47,13 +47,28 @@
         }
     } else if ([message.content isMemberOfClass:[RCLocationMessage class]]) {
         RCLocationMessage *locationMessage = (RCLocationMessage *)message.content;
-        if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedFileMessage:content:left:)]) {
-            [self.delegate onReceivedLocationMessage:locationMessage content:locationMessage left:nLeft];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedLocationMessage:content:left:)]) {
+            [self.delegate onReceivedLocationMessage:message content:locationMessage left:nLeft];
         }
     } else if ([message.content isMemberOfClass:[RCRichContentMessage class]]) {
         RCRichContentMessage *locationMessage = (RCRichContentMessage *)message.content;
-        if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedFileMessage:content:left:)]) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedRichContentMessage:content:left:)]) {
             [self.delegate onReceivedRichContentMessage:message content:locationMessage left:nLeft];
+        }
+    } else if ([message.content isMemberOfClass:[RCCommandMessage class]]) {
+        RCCommandMessage *commandMessage = (RCCommandMessage *)message.content;
+        if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedCommandMessage:content:left:)]) {
+            [self.delegate onReceivedCommandMessage:message content:commandMessage left:nLeft];
+        }
+    } else if ([message.content isMemberOfClass:[RCContactNotificationMessage class]]) {
+        RCContactNotificationMessage *contactNotification = (RCContactNotificationMessage *)message.content;
+        if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedContactNotificationMessage:content:left:)]) {
+            [self.delegate onReceivedContactNotificationMessage:message content:contactNotification left:nLeft];
+        }
+    } else if ([message.content isMemberOfClass:[RCGroupNotificationMessage class]]) {
+        RCGroupNotificationMessage *contactNotification = (RCGroupNotificationMessage *)message.content;
+        if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedGroupNotificationMessage:content:left:)]) {
+            [self.delegate onReceivedGroupNotificationMessage:message content:contactNotification left:nLeft];
         }
     }
 }

@@ -13,32 +13,47 @@
 //收到文本消息
 - (void)onReceivedTextMessage:(RCMessage *)message
                       content:(RCTextMessage *)content
-                         left:(int)nLeft;
+                         left:(int)left;
 
 //收到图片消息
 - (void)onReceivedImageMessage:(RCMessage *)message
                        content:(RCImageMessage *)content
-                          left:(int)nLeft;
+                          left:(int)left;
 
 //收到语音消息
 - (void)onReceivedVoiceMessage:(RCMessage *)message
                        content:(RCVoiceMessage *)content
-                          left:(int)nLeft;
+                          left:(int)left;
 
 //收到文件消息
 - (void)onReceivedFileMessage:(RCMessage *)message
                       content:(RCFileMessage *)content
-                         left:(int)nLeft;
+                         left:(int)left;
 
 //收到位置消息
 - (void)onReceivedLocationMessage:(RCMessage *)message
                           content:(RCLocationMessage *)content
-                             left:(int)nLeft;
+                             left:(int)left;
 
 //收到富文本消息
 - (void)onReceivedRichContentMessage:(RCMessage *)message
                              content:(RCRichContentMessage *)content
-                                left:(int)nLeft;
+                                left:(int)left;
+
+//收到命令消息
+- (void)onReceivedCommandMessage:(RCMessage *)message
+                         content:(RCCommandMessage *)content
+                            left:(int)left;
+
+//收到好友请求消息
+- (void)onReceivedContactNotificationMessage:(RCMessage *)message
+                                     content:(RCContactNotificationMessage *)content
+                                        left:(int)left;
+
+//收到群组通知消息
+- (void)onReceivedGroupNotificationMessage:(RCMessage *)message
+                                   content:(RCGroupNotificationMessage *)content
+                                      left:(int)left;
 
 //收到消息撤回
 - (void)onReceivedRecalledMessage:(RCMessage *)message
