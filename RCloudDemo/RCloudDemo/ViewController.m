@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.view.backgroundColor = [UIColor whiteColor];
     self.label = [[UILabel alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.label];
     self.label.numberOfLines = 0;

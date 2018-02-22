@@ -45,6 +45,16 @@
         if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedFileMessage:content:left:)]) {
             [self.delegate onReceivedFileMessage:message content:fileMessage left:nLeft];
         }
+    } else if ([message.content isMemberOfClass:[RCLocationMessage class]]) {
+        RCLocationMessage *locationMessage = (RCLocationMessage *)message.content;
+        if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedFileMessage:content:left:)]) {
+            [self.delegate onReceivedLocationMessage:locationMessage content:locationMessage left:nLeft];
+        }
+    } else if ([message.content isMemberOfClass:[RCRichContentMessage class]]) {
+        RCRichContentMessage *locationMessage = (RCRichContentMessage *)message.content;
+        if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedFileMessage:content:left:)]) {
+            [self.delegate onReceivedRichContentMessage:message content:locationMessage left:nLeft];
+        }
     }
 }
 

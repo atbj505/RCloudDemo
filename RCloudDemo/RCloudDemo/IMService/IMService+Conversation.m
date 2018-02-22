@@ -18,19 +18,26 @@
     return conversationList;
 }
 
-- (RCConversation *)getConversation:(RCConversationType)conversationType
-                           targetId:(NSString *)targetId {
-    RCConversation *conversation = [[RCIMClient sharedRCIMClient] getConversation:conversationType targetId:targetId];
-    return conversation;
+- (RCConversation *)getConversation:(NSString *)targetId {
+    RCConversation *conversation = [[RCIMClient sharedRCIMClient] getConversation:ConversationType_GROUP targetId:targetId];
+    if (!conversation) {
+        conversation = [[RCIMClient sharedRCIMClient] getConversation:ConversationType_PRIVATE targetId:targetId];
+    }
+    if (conversation) {
+        return conversation;
+    }
+    return nil;
 }
 
 - (NSArray<RCSearchConversationResult *> *)searchConversationskeyword:(NSString *)keyword {
     NSArray *conversationType = [self defaultConversationTypes];
-
+    //每个消息类方法getObjectName
     NSArray *messageType = @[ [RCTextMessage getObjectName],
                               [RCImageMessage getObjectName],
                               [RCVoiceMessage getObjectName],
-                              [RCFileMessage getObjectName] ];
+                              [RCFileMessage getObjectName],
+                              [RCLocationMessage getObjectName],
+                              [RCRichContentMessage getObjectName] ];
 
     return [[RCIMClient sharedRCIMClient] searchConversations:conversationType messageType:messageType keyword:keyword];
 }

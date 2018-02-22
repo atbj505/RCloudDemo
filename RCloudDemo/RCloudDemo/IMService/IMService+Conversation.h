@@ -21,12 +21,10 @@
 /**
  获取指定会话
  
- @param conversationType 会话类型
  @param targetId         会话ID
  @return 会话对象
  */
-- (RCConversation *)getConversation:(RCConversationType)conversationType
-                           targetId:(NSString *)targetId;
+- (RCConversation *)getConversation:(NSString *)targetId;
 
 /**
  根据关键字搜索

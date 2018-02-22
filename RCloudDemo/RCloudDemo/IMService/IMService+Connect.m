@@ -11,9 +11,11 @@
 
 @implementation IMService (Connect)
 
-- (void)connectWithToken:(NSString *)token {
+- (void)connectWithToken:(NSString *)token
+                 success:(void (^)(NSString *userId))successBlock
+                   error:(void (^)(RCConnectErrorCode status))errorBlock {
     [[RCIMClient sharedRCIMClient] connectWithToken:token success:^(NSString *userId) {
-        NSLog(@"success:%@", userId);
+        successBlock(userId);
         //设置当前用户ID
         [RCIMClient sharedRCIMClient].currentUserInfo.userId = userId;
         //设置离线消息补偿时间
@@ -23,9 +25,9 @@
 
         }];
     } error:^(RCConnectErrorCode status) {
-        NSLog(@"error:%ld", (long)status);
+        errorBlock(status);
     } tokenIncorrect:^{
-        NSLog(@"tokenIncorrect");
+
     }];
 }
 

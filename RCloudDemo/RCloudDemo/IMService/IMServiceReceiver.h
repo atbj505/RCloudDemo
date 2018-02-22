@@ -30,6 +30,16 @@
                       content:(RCFileMessage *)content
                          left:(int)nLeft;
 
+//收到位置消息
+- (void)onReceivedLocationMessage:(RCMessage *)message
+                          content:(RCLocationMessage *)content
+                             left:(int)nLeft;
+
+//收到富文本消息
+- (void)onReceivedRichContentMessage:(RCMessage *)message
+                             content:(RCRichContentMessage *)content
+                                left:(int)nLeft;
+
 //收到消息撤回
 - (void)onReceivedRecalledMessage:(RCMessage *)message
                           content:(RCRecallNotificationMessage *)content;
@@ -87,9 +97,9 @@
                               readerList:(NSMutableDictionary *)userIdList;
 
 /**
- 链接状态改变
+ 连接状态改变
 
- @param status 链接状态
+ @param status 连接状态
  */
 - (void)onConnectStatusChanged:(RCConnectionStatus)status;
 

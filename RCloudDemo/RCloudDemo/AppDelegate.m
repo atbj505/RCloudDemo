@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "IMService+Connect.h"
+#import "ViewController.h"
 
 
 @interface AppDelegate ()
@@ -22,7 +23,16 @@
     //robert rg2IPnRCD/tZqhZpBbvbg+QlHM19NWJxDanWpG0+73ptPI3CEBj9IcOM9UU1S4BAnjnARN4Y6EtTFGHljU6mNw==
     //080904 nE6Mrb9Rbdb8sDfXEO05Hlp+MCW6KAJIche2lJ5eytpqtN64OW1hfqZwxJwRRv3rPQ0zo+BjJykrmtr2lgR+aA==
 
-    [[IMService sharedIMService] connectWithToken:@"nE6Mrb9Rbdb8sDfXEO05Hlp+MCW6KAJIche2lJ5eytpqtN64OW1hfqZwxJwRRv3rPQ0zo+BjJykrmtr2lgR+aA=="];
+    //    [[IMService sharedIMService] connectWithToken:@"nE6Mrb9Rbdb8sDfXEO05Hlp+MCW6KAJIche2lJ5eytpqtN64OW1hfqZwxJwRRv3rPQ0zo+BjJykrmtr2lgR+aA==" success:^(NSString *userId) {
+    //
+    //    } error:^(RCConnectErrorCode status) {
+    //
+    //    }];
+
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    UIViewController *vc = [[ViewController alloc] init];
+    self.window.rootViewController = vc;
+    [self.window makeKeyAndVisible];
 
     return YES;
 }

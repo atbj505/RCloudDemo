@@ -16,7 +16,9 @@
  *
  *  @param token 令牌
  */
-- (void)connectWithToken:(NSString *)token;
+- (void)connectWithToken:(NSString *)token
+                 success:(void (^)(NSString *userId))successBlock
+                   error:(void (^)(RCConnectErrorCode status))errorBlock;
 
 /**
  断开与融云服务器的链接

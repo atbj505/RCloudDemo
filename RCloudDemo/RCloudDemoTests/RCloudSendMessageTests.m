@@ -27,14 +27,14 @@
     [super tearDown];
 }
 
-- (void)testSendMessage {
+- (void)testSendTextMessage {
     XCTestExpectation *expectation = [self expectationWithDescription:@"sendTextMessage"];
 
-    [[IMService sharedIMService] sendTextUserId:@"080904" content:@"test" success:^(long messageId) {
-        XCTAssertGreaterThanOrEqual(messageId, 0, @"send fail");
+    [[IMService sharedIMService] sendTextUserId:@"robert" content:@"texttest" extra:nil success:^(long messageId) {
+        XCTAssertGreaterThanOrEqual(messageId, 0, @"发送失败");
         [expectation fulfill];
-    } fail:^(RCErrorCode errorcode, long messageId){
-
+    } error:^(RCErrorCode errorcode, long messageId) {
+        XCTFail(@"发送失败");
     }];
 
     [self waitForExpectationsWithTimeout:10 handler:^(NSError *_Nullable error) {
