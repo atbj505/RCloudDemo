@@ -33,10 +33,7 @@
     NSArray *conversationType = [self defaultConversationTypes];
     //每个消息类方法getObjectName
     NSArray *messageType = @[ [RCTextMessage getObjectName],
-                              [RCImageMessage getObjectName],
-                              [RCVoiceMessage getObjectName],
                               [RCFileMessage getObjectName],
-                              [RCLocationMessage getObjectName],
                               [RCRichContentMessage getObjectName] ];
 
     return [[RCIMClient sharedRCIMClient] searchConversations:conversationType messageType:messageType keyword:keyword];
@@ -72,12 +69,6 @@
     return [[RCIMClient sharedRCIMClient] getTopConversationList:conversationType];
 }
 
-- (NSArray<RCConversation *> *)getBlockedConversationList {
-    NSArray *conversationType = [self defaultConversationTypes];
-
-    return [[RCIMClient sharedRCIMClient] getBlockedConversationList:conversationType];
-}
-
 - (NSString *)getTextMessageDraft:(RCConversationType)conversationType
                          targetId:(NSString *)targetId {
     return [[RCIMClient sharedRCIMClient] getTextMessageDraft:conversationType targetId:targetId];
@@ -96,15 +87,10 @@
 
 - (void)setConversationNotificationStatus:(RCConversationType)conversationType
                                  targetId:(NSString *)targetId
+                                    block:(BOOL)isBlock
                                   success:(void (^)(RCConversationNotificationStatus nStatus))successBlock
                                     error:(void (^)(RCErrorCode status))errorBlock {
-    //获取会话当前提醒状态
-    [self getConversationNotificationStatus:conversationType targetId:targetId success:^(RCConversationNotificationStatus nStatus) {
-        //设置会话提醒状态
-        [[RCIMClient sharedRCIMClient] setConversationNotificationStatus:conversationType targetId:targetId isBlocked:!nStatus success:successBlock error:errorBlock];
-    } error:^(RCErrorCode status) {
-        errorBlock(status);
-    }];
+    [[RCIMClient sharedRCIMClient] setConversationNotificationStatus:conversationType targetId:targetId isBlocked:isBlock success:successBlock error:errorBlock];
 }
 
 - (void)getConversationNotificationStatus:(RCConversationType)conversationType
@@ -112,6 +98,12 @@
                                   success:(void (^)(RCConversationNotificationStatus nStatus))successBlock
                                     error:(void (^)(RCErrorCode status))errorBlock {
     [[RCIMClient sharedRCIMClient] getConversationNotificationStatus:conversationType targetId:targetId success:successBlock error:errorBlock];
+}
+
+- (NSArray<RCConversation *> *)getBlockedConversationList {
+    NSArray *conversationType = [self defaultConversationTypes];
+
+    return [[RCIMClient sharedRCIMClient] getBlockedConversationList:conversationType];
 }
 
 - (void)setNotificationQuietHours:(NSString *)startTime
@@ -132,9 +124,8 @@
 }
 
 - (void)sendTypingStatus:(RCConversationType)conversationType
-                targetId:(NSString *)targetId
-             contentType:(NSString *)objectName {
-    [[RCIMClient sharedRCIMClient] sendTypingStatus:conversationType targetId:targetId contentType:objectName];
+                targetId:(NSString *)targetId {
+    [[RCIMClient sharedRCIMClient] sendTypingStatus:conversationType targetId:targetId contentType:[RCTextMessage getObjectName]];
 }
 
 - (void)syncConversationReadStatus:(RCConversationType)conversationType

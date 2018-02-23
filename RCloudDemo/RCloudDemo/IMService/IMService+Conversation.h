@@ -70,13 +70,6 @@
  */
 - (NSArray<RCConversation *> *)getTopConversationList;
 
-/**
- 获取屏蔽消息提醒的会话列表
-
- @return 屏蔽的会话列表
- */
-- (NSArray<RCConversation *> *)getBlockedConversationList;
-
 #pragma mark - 草稿
 
 /**
@@ -118,6 +111,7 @@
 
  @param conversationType 会话类型
  @param targetId 会话ID
+ @param isBlock 是否屏蔽
  @param successBlock 成功回调
  @param errorBlock 失败回调
  
@@ -126,6 +120,7 @@
  */
 - (void)setConversationNotificationStatus:(RCConversationType)conversationType
                                  targetId:(NSString *)targetId
+                                    block:(BOOL)isBlock
                                   success:(void (^)(RCConversationNotificationStatus nStatus))successBlock
                                     error:(void (^)(RCErrorCode status))errorBlock;
 
@@ -141,6 +136,13 @@
                                  targetId:(NSString *)targetId
                                   success:(void (^)(RCConversationNotificationStatus nStatus))successBlock
                                     error:(void (^)(RCErrorCode status))errorBlock;
+
+/**
+ 获取屏蔽消息提醒的会话列表
+ 
+ @return 屏蔽的会话列表
+ */
+- (NSArray<RCConversation *> *)getBlockedConversationList;
 
 /**
  屏蔽某个时间段的消息提醒（全局）
@@ -181,11 +183,9 @@
 
  @param conversationType 会话类型
  @param targetId 会话ID
- @param objectName 消息类型
  */
 - (void)sendTypingStatus:(RCConversationType)conversationType
-                targetId:(NSString *)targetId
-             contentType:(NSString *)objectName;
+                targetId:(NSString *)targetId;
 
 #pragma mark - 多端阅读消息数同步
 

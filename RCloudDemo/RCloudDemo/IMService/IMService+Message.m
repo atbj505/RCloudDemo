@@ -99,6 +99,8 @@
         [[RCIMClient sharedRCIMClient] deleteMessages:conversationType targetId:targetId success:^{
             if (isSync) {
                 [[RCIMClient sharedRCIMClient] clearRemoteHistoryMessages:conversationType targetId:targetId recordTime:0 success:successBlock error:errorBlock];
+            } else {
+                successBlock();
             }
         } error:errorBlock];
     }
