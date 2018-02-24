@@ -126,11 +126,11 @@
 		574756FD1CE07D9100D481AD /* RCloudDemo */ = {
 			isa = PBXGroup;
 			children = (
-				574757011CE07D9100D481AD /* AppDelegate.h */,
-				574757021CE07D9100D481AD /* AppDelegate.m */,
-				57813F112041107000A0C23A /* Viewcontrollers */,
 				5747572D1CE178FF00D481AD /* IMService */,
 				574756FE1CE07D9100D481AD /* Supporting Files */,
+				57813F112041107000A0C23A /* Viewcontrollers */,
+				574757011CE07D9100D481AD /* AppDelegate.h */,
+				574757021CE07D9100D481AD /* AppDelegate.m */,
 			);
 			path = RCloudDemo;
 			sourceTree = "<group>";
@@ -138,11 +138,11 @@
 		574756FE1CE07D9100D481AD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				574757231CE0820F00D481AD /* RCloudDemo.pch */,
-				574756FF1CE07D9100D481AD /* main.m */,
 				5747570A1CE07D9100D481AD /* Assets.xcassets */,
 				5747570F1CE07D9100D481AD /* Info.plist */,
 				5747570C1CE07D9100D481AD /* LaunchScreen.storyboard */,
+				574757231CE0820F00D481AD /* RCloudDemo.pch */,
+				574756FF1CE07D9100D481AD /* main.m */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -161,14 +161,16 @@
 		5747572D1CE178FF00D481AD /* IMService */ = {
 			isa = PBXGroup;
 			children = (
-				574757241CE0875400D481AD /* IMService.h */,
-				574757251CE0875400D481AD /* IMService.m */,
-				57078B58201F316800356643 /* IMServiceReceiver.h */,
-				57078B59201F316800356643 /* IMServiceReceiver.m */,
+				574CF593202AE69A009F3635 /* IMService+BlackList.h */,
+				574CF594202AE69A009F3635 /* IMService+BlackList.m */,
 				5738272F201F14BF00071D53 /* IMService+Connect.h */,
 				57382730201F14BF00071D53 /* IMService+Connect.m */,
+				574CF599202C5029009F3635 /* IMService+Contact.h */,
+				574CF59A202C5029009F3635 /* IMService+Contact.m */,
 				572FC8BA1CE18B7200C9BCAC /* IMService+Conversation.h */,
 				572FC8BB1CE18B7200C9BCAC /* IMService+Conversation.m */,
+				574CF596202AF6F3009F3635 /* IMService+Group.h */,
+				574CF597202AF6F3009F3635 /* IMService+Group.m */,
 				57078B752021A89000356643 /* IMService+Message.h */,
 				57078B762021A89000356643 /* IMService+Message.m */,
 				5747572A1CE178FA00D481AD /* IMService+Record.h */,
@@ -177,12 +179,10 @@
 				574757281CE16D6400D481AD /* IMService+SendMessage.m */,
 				5747572E1CE1889600D481AD /* IMService+UnreadCount.h */,
 				5747572F1CE1889600D481AD /* IMService+UnreadCount.m */,
-				574CF593202AE69A009F3635 /* IMService+BlackList.h */,
-				574CF594202AE69A009F3635 /* IMService+BlackList.m */,
-				574CF596202AF6F3009F3635 /* IMService+Group.h */,
-				574CF597202AF6F3009F3635 /* IMService+Group.m */,
-				574CF599202C5029009F3635 /* IMService+Contact.h */,
-				574CF59A202C5029009F3635 /* IMService+Contact.m */,
+				574757241CE0875400D481AD /* IMService.h */,
+				574757251CE0875400D481AD /* IMService.m */,
+				57078B58201F316800356643 /* IMServiceReceiver.h */,
+				57078B59201F316800356643 /* IMServiceReceiver.m */,
 			);
 			path = IMService;
 			sourceTree = "<group>";
