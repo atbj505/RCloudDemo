@@ -91,12 +91,12 @@
 }
 
 - (void)onMessageRecalled:(long)messageId {
-    //    id delegate = self.messageDelegateDict[targetId];
-    //    RCMessage *message = [[IMService sharedIMService] getMessage:messageId];
-    //    RCRecallNotificationMessage *recalledMessage = (RCRecallNotificationMessage *)message.content;
-    //    if (delegate && [delegate respondsToSelector:@selector(onReceivedRecalledMessage:content:)]) {
-    //        [delegate onReceivedRecalledMessage:message content:recalledMessage];
-    //    }
+    RCMessage *message = [[IMService sharedIMService] getMessage:messageId];
+    id delegate = self.messageDelegateDict[message.targetId];
+    RCRecallNotificationMessage *recalledMessage = (RCRecallNotificationMessage *)message.content;
+    if (delegate && [delegate respondsToSelector:@selector(onReceivedRecalledMessage:content:)]) {
+        [delegate onReceivedRecalledMessage:message content:recalledMessage];
+    }
 }
 
 - (void)onMessageReceiptRequest:(RCConversationType)conversationType
