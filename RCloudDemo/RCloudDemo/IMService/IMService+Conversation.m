@@ -12,7 +12,7 @@
 
 @implementation IMService (Conversation)
 
-- (NSArray *)getConversationLists {
+- (NSArray<RCConversation *> *)getConversationLists {
     NSArray *conversationList = [[RCIMClient sharedRCIMClient]
         getConversationList:[self defaultConversationTypes]];
     return conversationList;

@@ -10,6 +10,17 @@
 #import "IMService+Message.h"
 
 
+@interface IMServiceReceiver ()
+
+@property (nonatomic, weak) id<IMServiceReceiverMessageDelegate> messageDelegate;
+
+@property (nonatomic, weak) id<IMServiceConnectDelegate> connectDelegate;
+
+@property (nonatomic, strong) NSMutableDictionary *messageDelegateDict;
+
+@end
+
+
 @implementation IMServiceReceiver
 
 - (void)dealloc {
@@ -19,74 +30,82 @@
 - (instancetype)init {
     if (self = [super init]) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ReadReceiptMessage:) name:RCLibDispatchReadReceiptNotification object:nil];
+        self.messageDelegateDict = [NSMutableDictionary dictionary];
     }
     return self;
 }
 
+- (void)setMessageDelegate:(id<IMServiceReceiverMessageDelegate>)delegate forKey:(NSString *)target {
+    [self.messageDelegateDict setObject:delegate forKey:target];
+}
+
+- (void)setConnectionStatusDelegate:(id<IMServiceConnectDelegate>)delegate {
+    self.connectDelegate = delegate;
+}
+
 #pragma mark - RCIMClientReceiveMessageDelegate
 - (void)onReceived:(RCMessage *)message left:(int)nLeft object:(id)object {
+    NSString *targetId = message.targetId;
+    id delegate = self.messageDelegateDict[targetId];
+
     if ([message.content isMemberOfClass:[RCTextMessage class]]) {
-        RCTextMessage *textMessage = (RCTextMessage *)message.content;
-        if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedTextMessage:content:left:)]) {
-            [self.delegate onReceivedTextMessage:message content:textMessage left:nLeft];
+        if (delegate && [delegate respondsToSelector:@selector(onReceivedMessage:type:left:)]) {
+            [delegate onReceivedMessage:message type:IMServiceTextMessage left:nLeft];
         }
     } else if ([message.content isMemberOfClass:[RCImageMessage class]]) {
-        RCImageMessage *imageMessage = (RCImageMessage *)message.content;
-        if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedImageMessage:content:left:)]) {
-            [self.delegate onReceivedImageMessage:message content:imageMessage left:nLeft];
+        if (delegate && [delegate respondsToSelector:@selector(onReceivedMessage:type:left:)]) {
+            [delegate onReceivedMessage:message type:IMServiceImageMessage left:nLeft];
         }
     } else if ([message.content isMemberOfClass:[RCVoiceMessage class]]) {
-        RCVoiceMessage *voiceMessage = (RCVoiceMessage *)message.content;
-        if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedVoiceMessage:content:left:)]) {
-            [self.delegate onReceivedVoiceMessage:message content:voiceMessage left:nLeft];
+        if (delegate && [delegate respondsToSelector:@selector(onReceivedMessage:type:left:)]) {
+            [delegate onReceivedMessage:message type:IMServiceVoiceMessage left:nLeft];
         }
     } else if ([message.content isMemberOfClass:[RCFileMessage class]]) {
-        RCFileMessage *fileMessage = (RCFileMessage *)message.content;
-        if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedFileMessage:content:left:)]) {
-            [self.delegate onReceivedFileMessage:message content:fileMessage left:nLeft];
+        if (delegate && [delegate respondsToSelector:@selector(onReceivedMessage:type:left:)]) {
+            [delegate onReceivedMessage:message type:IMServiceFileMessage left:nLeft];
         }
     } else if ([message.content isMemberOfClass:[RCLocationMessage class]]) {
-        RCLocationMessage *locationMessage = (RCLocationMessage *)message.content;
-        if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedLocationMessage:content:left:)]) {
-            [self.delegate onReceivedLocationMessage:message content:locationMessage left:nLeft];
+        if (delegate && [delegate respondsToSelector:@selector(onReceivedMessage:type:left:)]) {
+            [delegate onReceivedMessage:message type:IMServiceLocationMessage left:nLeft];
         }
     } else if ([message.content isMemberOfClass:[RCRichContentMessage class]]) {
-        RCRichContentMessage *locationMessage = (RCRichContentMessage *)message.content;
-        if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedRichContentMessage:content:left:)]) {
-            [self.delegate onReceivedRichContentMessage:message content:locationMessage left:nLeft];
+        if (delegate && [delegate respondsToSelector:@selector(onReceivedMessage:type:left:)]) {
+            [delegate onReceivedMessage:message type:IMServiceRichContentMessage left:nLeft];
         }
     } else if ([message.content isMemberOfClass:[RCCommandMessage class]]) {
         RCCommandMessage *commandMessage = (RCCommandMessage *)message.content;
-        if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedCommandMessage:content:left:)]) {
-            [self.delegate onReceivedCommandMessage:message content:commandMessage left:nLeft];
+        if (delegate && [delegate respondsToSelector:@selector(onReceivedCommandMessage:content:left:)]) {
+            [delegate onReceivedCommandMessage:message content:commandMessage left:nLeft];
         }
     } else if ([message.content isMemberOfClass:[RCContactNotificationMessage class]]) {
         RCContactNotificationMessage *contactNotification = (RCContactNotificationMessage *)message.content;
-        if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedContactNotificationMessage:content:left:)]) {
-            [self.delegate onReceivedContactNotificationMessage:message content:contactNotification left:nLeft];
+        if (delegate && [delegate respondsToSelector:@selector(onReceivedContactNotificationMessage:content:left:)]) {
+            [delegate onReceivedContactNotificationMessage:message content:contactNotification left:nLeft];
         }
     } else if ([message.content isMemberOfClass:[RCGroupNotificationMessage class]]) {
         RCGroupNotificationMessage *contactNotification = (RCGroupNotificationMessage *)message.content;
-        if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedGroupNotificationMessage:content:left:)]) {
-            [self.delegate onReceivedGroupNotificationMessage:message content:contactNotification left:nLeft];
+        if (delegate && [delegate respondsToSelector:@selector(onReceivedGroupNotificationMessage:content:left:)]) {
+            [delegate onReceivedGroupNotificationMessage:message content:contactNotification left:nLeft];
         }
     }
 }
 
 - (void)onMessageRecalled:(long)messageId {
-    RCMessage *message = [[IMService sharedIMService] getMessage:messageId];
-    RCRecallNotificationMessage *recalledMessage = (RCRecallNotificationMessage *)message.content;
-    if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedRecalledMessage:content:)]) {
-        [self.delegate onReceivedRecalledMessage:message content:recalledMessage];
-    }
+    //    id delegate = self.messageDelegateDict[targetId];
+    //    RCMessage *message = [[IMService sharedIMService] getMessage:messageId];
+    //    RCRecallNotificationMessage *recalledMessage = (RCRecallNotificationMessage *)message.content;
+    //    if (delegate && [delegate respondsToSelector:@selector(onReceivedRecalledMessage:content:)]) {
+    //        [delegate onReceivedRecalledMessage:message content:recalledMessage];
+    //    }
 }
 
 - (void)onMessageReceiptRequest:(RCConversationType)conversationType
                        targetId:(NSString *)targetId
                      messageUId:(NSString *)messageUId {
+    id delegate = self.messageDelegateDict[targetId];
     RCMessage *message = [[IMService sharedIMService] getMessageByUId:messageUId];
-    if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedMessageReceiptRequest:targetId:message:)]) {
-        [self.delegate onReceivedMessageReceiptRequest:conversationType targetId:targetId message:message];
+    if (delegate && [delegate respondsToSelector:@selector(onReceivedMessageReceiptRequest:targetId:message:)]) {
+        [delegate onReceivedMessageReceiptRequest:conversationType targetId:targetId message:message];
     }
 }
 
@@ -94,9 +113,10 @@
                         targetId:(NSString *)targetId
                       messageUId:(NSString *)messageUId
                       readerList:(NSMutableDictionary *)userIdList {
+    id delegate = self.messageDelegateDict[targetId];
     RCMessage *message = [[RCIMClient sharedRCIMClient] getMessageByUId:messageUId];
-    if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedMessageReceiptResponse:targetId:message:readerList:)]) {
-        [self.delegate onReceivedMessageReceiptResponse:conversationType targetId:targetId message:message readerList:userIdList];
+    if (delegate && [delegate respondsToSelector:@selector(onReceivedMessageReceiptResponse:targetId:message:readerList:)]) {
+        [delegate onReceivedMessageReceiptResponse:conversationType targetId:targetId message:message readerList:userIdList];
     }
 }
 
@@ -106,9 +126,10 @@
                      targetId:(NSString *)targetId
                        status:(NSArray *)userTypingStatusList {
     if (userTypingStatusList) {
+        id delegate = self.messageDelegateDict[targetId];
         RCUserTypingStatus *typeStatus = [userTypingStatusList lastObject];
-        if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedTypingStatusChanged:targetId:userId:contentType:)]) {
-            [self.delegate onReceivedTypingStatusChanged:conversationType targetId:targetId userId:typeStatus.userId contentType:typeStatus.contentType];
+        if (delegate && [delegate respondsToSelector:@selector(onReceivedTypingStatusChanged:targetId:userId:contentType:)]) {
+            [delegate onReceivedTypingStatusChanged:conversationType targetId:targetId userId:typeStatus.userId contentType:typeStatus.contentType];
         }
     }
 }
@@ -119,16 +140,17 @@
     NSNumber *ctype = [notification.userInfo objectForKey:@"cType"];
     NSNumber *time = [notification.userInfo objectForKey:@"messageTime"];
     NSString *targetId = [notification.userInfo objectForKey:@"tId"];
-    if (self.delegate && [self.delegate respondsToSelector:@selector(onReceivedReadReceiptMessage:targetId:time:)]) {
-        [self.delegate onReceivedReadReceiptMessage:[ctype integerValue] targetId:targetId time:[time longLongValue]];
+    id delegate = self.messageDelegateDict[targetId];
+    if (delegate && [delegate respondsToSelector:@selector(onReceivedReadReceiptMessage:targetId:time:)]) {
+        [delegate onReceivedReadReceiptMessage:[ctype integerValue] targetId:targetId time:[time longLongValue]];
     }
 }
 
 #pragma mark - RCConnectionStatusChangeDelegate
 
 - (void)onConnectionStatusChanged:(RCConnectionStatus)status {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(onConnectStatusChanged:)]) {
-        [self.delegate onConnectStatusChanged:status];
+    if (self.connectDelegate && [self.connectDelegate respondsToSelector:@selector(onConnectStatusChanged:)]) {
+        [self.connectDelegate onConnectStatusChanged:status];
     }
 }
 

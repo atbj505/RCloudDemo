@@ -8,37 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol IMServiceReceiverDelegate <NSObject>
 
-//收到文本消息
-- (void)onReceivedTextMessage:(RCMessage *)message
-                      content:(RCTextMessage *)content
-                         left:(int)left;
+typedef NS_ENUM(NSUInteger, IMServiceMessageType) {
+    IMServiceTextMessage,
+    IMServiceImageMessage,
+    IMServiceVoiceMessage,
+    IMServiceFileMessage,
+    IMServiceLocationMessage,
+    IMServiceRichContentMessage
+};
 
-//收到图片消息
-- (void)onReceivedImageMessage:(RCMessage *)message
-                       content:(RCImageMessage *)content
-                          left:(int)left;
+@protocol IMServiceReceiverMessageDelegate <NSObject>
 
-//收到语音消息
-- (void)onReceivedVoiceMessage:(RCMessage *)message
-                       content:(RCVoiceMessage *)content
-                          left:(int)left;
-
-//收到文件消息
-- (void)onReceivedFileMessage:(RCMessage *)message
-                      content:(RCFileMessage *)content
-                         left:(int)left;
-
-//收到位置消息
-- (void)onReceivedLocationMessage:(RCMessage *)message
-                          content:(RCLocationMessage *)content
-                             left:(int)left;
-
-//收到富文本消息
-- (void)onReceivedRichContentMessage:(RCMessage *)message
-                             content:(RCRichContentMessage *)content
-                                left:(int)left;
+@optional
+//收到消息
+- (void)onReceivedMessage:(RCMessage *)message
+                     type:(IMServiceMessageType)type
+                     left:(int)left;
 
 //收到命令消息
 - (void)onReceivedCommandMessage:(RCMessage *)message
@@ -110,7 +96,9 @@
                                 targetId:(NSString *)targetId
                                  message:(RCMessage *)message
                               readerList:(NSMutableDictionary *)userIdList;
+@end
 
+@protocol IMServiceConnectDelegate <NSObject>
 /**
  连接状态改变
 
@@ -123,6 +111,8 @@
 
 @interface IMServiceReceiver : NSObject <RCIMClientReceiveMessageDelegate, RCTypingStatusDelegate, RCConnectionStatusChangeDelegate>
 
-@property (nonatomic, weak) id<IMServiceReceiverDelegate> delegate;
+- (void)setMessageDelegate:(id<IMServiceReceiverMessageDelegate>)delegate forKey:(NSString *)target;
+
+- (void)setConnectionStatusDelegate:(id<IMServiceConnectDelegate>)delegate;
 
 @end

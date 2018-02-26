@@ -11,4 +11,6 @@
 
 @interface IMConversationViewController : UIViewController
 
+- (instancetype)initWithConversation:(RCConversation *)converstaion;
+
 @end

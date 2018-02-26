@@ -7,33 +7,52 @@
 //
 
 #import "IMConversationViewController.h"
+#import "IMService+Conversation.h"
+#import "IMService+Message.h"
+#import "IMServiceReceiver.h"
 
 
-@interface IMConversationViewController ()
+@interface IMConversationViewController () <IMServiceReceiverMessageDelegate, IMServiceConnectDelegate>
+
+@property (nonatomic, strong) RCConversation *conversation;
+
+@property (nonatomic, strong) UITableView *tablewView;
+
+@property (nonatomic, strong) NSArray *dataArray;
 
 @end
 
 
 @implementation IMConversationViewController
 
+- (instancetype)initWithConversation:(RCConversation *)converstaion {
+    if (self = [super init]) {
+        self.conversation = converstaion;
+    }
+    return self;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[IMService sharedIMService] syncConversationReadStatus:self.conversation.conversationType targetId:self.conversation.targetId time:self.conversation.receivedTime success:^{
+
+    } error:^(RCErrorCode nErrorCode){
+
+    }];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+    [[IMService sharedIMService].receiver setMessageDelegate:self forKey:self.conversation.targetId];
 
-/*
-#pragma mark - Navigation
+    self.dataArray = [[IMService sharedIMService] getAllLocalMessage:self.conversation.conversationType targetId:self.conversation.targetId];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [[IMService sharedIMService] syncConversationReadStatus:self.conversation.conversationType targetId:self.conversation.targetId time:self.conversation.receivedTime success:^{
+
+    } error:^(RCErrorCode nErrorCode){
+
+    }];
 }
-*/
 
 @end

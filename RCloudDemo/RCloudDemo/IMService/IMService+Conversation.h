@@ -16,7 +16,7 @@
  
  @return 会话列表
  */
-- (NSArray *)getConversationLists;
+- (NSArray<RCConversation *> *)getConversationLists;
 
 /**
  获取指定会话

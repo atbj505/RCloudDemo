@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "IMService+Connect.h"
-#import "ViewController.h"
+#import "IMConversationListsViewController.h"
 
 
 @interface AppDelegate ()
@@ -30,8 +30,9 @@
     }];
 
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    UIViewController *vc = [[ViewController alloc] init];
-    self.window.rootViewController = vc;
+    IMConversationListsViewController *vc = [[IMConversationListsViewController alloc] init];
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:vc];
+    self.window.rootViewController = navi;
     [self.window makeKeyAndVisible];
 
     return YES;
