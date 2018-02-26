@@ -19,8 +19,8 @@
  @param targetId 会话ID
  @return 消息列表
  */
-- (NSArray<RCMessage *> *)getAllLocalMessage:(RCConversationType)conversationType
-                                    targetId:(NSString *)targetId;
+- (NSArray<RCMessage *> *)getLatestMessages:(RCConversationType)conversationType
+                                   targetId:(NSString *)targetId;
 
 
 /**

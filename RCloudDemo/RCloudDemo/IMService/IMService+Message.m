@@ -11,8 +11,8 @@
 
 @implementation IMService (Message)
 
-- (NSArray<RCMessage *> *)getAllLocalMessage:(RCConversationType)conversationType
-                                    targetId:(NSString *)targetId {
+- (NSArray<RCMessage *> *)getLatestMessages:(RCConversationType)conversationType
+                                   targetId:(NSString *)targetId {
     return [[RCIMClient sharedRCIMClient] getLatestMessages:conversationType targetId:targetId count:999];
 }
 

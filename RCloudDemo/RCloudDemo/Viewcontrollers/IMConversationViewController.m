@@ -10,15 +10,16 @@
 #import "IMService+Conversation.h"
 #import "IMService+Message.h"
 #import "IMServiceReceiver.h"
+#import "IMConversationTableViewCell.h"
 
 
-@interface IMConversationViewController () <IMServiceReceiverMessageDelegate, IMServiceConnectDelegate>
+@interface IMConversationViewController () <UITableViewDelegate, UITableViewDataSource, IMServiceReceiverMessageDelegate, IMServiceConnectDelegate>
 
 @property (nonatomic, strong) RCConversation *conversation;
 
-@property (nonatomic, strong) UITableView *tablewView;
+@property (nonatomic, strong) UITableView *tableView;
 
-@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) NSMutableArray *dataArray;
 
 @end
 
@@ -28,12 +29,27 @@
 - (instancetype)initWithConversation:(RCConversation *)converstaion {
     if (self = [super init]) {
         self.conversation = converstaion;
+        self.dataArray = [NSMutableArray array];
     }
     return self;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    [self sync];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    [self sync];
+
+    [[IMService sharedIMService].receiver setMessageDelegate:self forKey:self.conversation.targetId];
+
+    [self.view addSubview:self.tableView];
+}
+
+- (void)sync {
     [[IMService sharedIMService] syncConversationReadStatus:self.conversation.conversationType targetId:self.conversation.targetId time:self.conversation.receivedTime success:^{
 
     } error:^(RCErrorCode nErrorCode){
@@ -41,18 +57,34 @@
     }];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    self.dataArray = [[[IMService sharedIMService] getLatestMessages:self.conversation.conversationType targetId:self.conversation.targetId] mutableCopy];
+    return self.dataArray.count;
+}
 
-    [[IMService sharedIMService].receiver setMessageDelegate:self forKey:self.conversation.targetId];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    IMConversationTableViewCell *tableviewCell = [tableView dequeueReusableCellWithIdentifier:@"conversationtablviewCell" forIndexPath:indexPath];
+    RCMessage *message = self.dataArray[indexPath.row];
+    tableviewCell.message = message;
+    return tableviewCell;
+}
 
-    self.dataArray = [[IMService sharedIMService] getAllLocalMessage:self.conversation.conversationType targetId:self.conversation.targetId];
+#pragma mark - IMServiceReceiverMessageDelegate
+- (void)onReceivedMessage:(RCMessage *)message type:(IMServiceMessageType)type left:(int)left {
+}
 
-    [[IMService sharedIMService] syncConversationReadStatus:self.conversation.conversationType targetId:self.conversation.targetId time:self.conversation.receivedTime success:^{
+#pragma marl - IMServiceConnectDelegate
+- (void)onConnectStatusChanged:(RCConnectionStatus)status {
+}
 
-    } error:^(RCErrorCode nErrorCode){
-
-    }];
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        [_tableView registerClass:[IMConversationTableViewCell class] forCellReuseIdentifier:@"conversationtablviewCell"];
+    }
+    return _tableView;
 }
 
 @end

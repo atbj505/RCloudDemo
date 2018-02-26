@@ -5,6 +5,8 @@
 
 target 'RCloudDemo' do
     pod 'RongCloudIM/IMLib'
+    pod 'Masonry'
+    pod 'SDWebImage'
 end
 
 target 'RCloudDemoTests' do

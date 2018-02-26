@@ -34,7 +34,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *tableviewCell = [tableView dequeueReusableCellWithIdentifier:@"tablviewCell" forIndexPath:indexPath];
+    UITableViewCell *tableviewCell = [tableView dequeueReusableCellWithIdentifier:@"conversationlisttablviewCell" forIndexPath:indexPath];
     RCConversation *conversation = self.dataArray[indexPath.row];
     tableviewCell.textLabel.text = conversation.targetId;
     return tableviewCell;
@@ -51,7 +51,7 @@
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"tablviewCell"];
+        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"conversationlisttablviewCell"];
     }
     return _tableView;
 }
