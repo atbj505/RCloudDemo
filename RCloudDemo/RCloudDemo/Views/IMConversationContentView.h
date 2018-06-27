@@ -11,4 +11,6 @@
 
 @interface IMConversationContentView : UIView
 
+@property (nonatomic, strong) RCMessageContent *content;
+
 @end

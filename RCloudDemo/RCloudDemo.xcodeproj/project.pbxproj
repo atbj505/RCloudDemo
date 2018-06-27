@@ -26,6 +26,7 @@
 		574CF595202AE69A009F3635 /* IMService+BlackList.m in Sources */ = {isa = PBXBuildFile; fileRef = 574CF594202AE69A009F3635 /* IMService+BlackList.m */; };
 		574CF598202AF6F3009F3635 /* IMService+Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 574CF597202AF6F3009F3635 /* IMService+Group.m */; };
 		574CF59B202C5029009F3635 /* IMService+Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 574CF59A202C5029009F3635 /* IMService+Contact.m */; };
+		574E6F0120E33F88004890CD /* IMServiceReceiverNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 574E6F0020E33F88004890CD /* IMServiceReceiverNode.m */; };
 		57813F08203E9BA700A0C23A /* RCloudConnectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 57813F07203E9BA700A0C23A /* RCloudConnectTests.m */; };
 		57813F0A203EA06200A0C23A /* RCloudConversationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 57813F09203EA06200A0C23A /* RCloudConversationTests.m */; };
 		57813F102041106400A0C23A /* IMConversationListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57813F0F2041106400A0C23A /* IMConversationListsViewController.m */; };
@@ -83,6 +84,8 @@
 		574CF597202AF6F3009F3635 /* IMService+Group.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "IMService+Group.m"; sourceTree = "<group>"; };
 		574CF599202C5029009F3635 /* IMService+Contact.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IMService+Contact.h"; sourceTree = "<group>"; };
 		574CF59A202C5029009F3635 /* IMService+Contact.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "IMService+Contact.m"; sourceTree = "<group>"; };
+		574E6EFF20E33F88004890CD /* IMServiceReceiverNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMServiceReceiverNode.h; sourceTree = "<group>"; };
+		574E6F0020E33F88004890CD /* IMServiceReceiverNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMServiceReceiverNode.m; sourceTree = "<group>"; };
 		57813F07203E9BA700A0C23A /* RCloudConnectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCloudConnectTests.m; sourceTree = "<group>"; };
 		57813F09203EA06200A0C23A /* RCloudConversationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCloudConversationTests.m; sourceTree = "<group>"; };
 		57813F0E2041106400A0C23A /* IMConversationListsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMConversationListsViewController.h; sourceTree = "<group>"; };
@@ -207,6 +210,8 @@
 				574757251CE0875400D481AD /* IMService.m */,
 				57078B58201F316800356643 /* IMServiceReceiver.h */,
 				57078B59201F316800356643 /* IMServiceReceiver.m */,
+				574E6EFF20E33F88004890CD /* IMServiceReceiverNode.h */,
+				574E6F0020E33F88004890CD /* IMServiceReceiverNode.m */,
 			);
 			path = IMService;
 			sourceTree = "<group>";
@@ -450,6 +455,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				574E6F0120E33F88004890CD /* IMServiceReceiverNode.m in Sources */,
 				572FC8BC1CE18B7200C9BCAC /* IMService+Conversation.m in Sources */,
 				574CF59B202C5029009F3635 /* IMService+Contact.m in Sources */,
 				57078B5A201F316800356643 /* IMServiceReceiver.m in Sources */,

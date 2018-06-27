@@ -10,12 +10,15 @@
 
 
 typedef NS_ENUM(NSUInteger, IMServiceMessageType) {
-    IMServiceTextMessage,
+    IMServiceTextMessage = 0,
     IMServiceImageMessage,
     IMServiceVoiceMessage,
     IMServiceFileMessage,
     IMServiceLocationMessage,
-    IMServiceRichContentMessage
+    IMServiceRichContentMessage,
+    IMServiceCommandMessage,
+    IMServiceContactNotificationMessage,
+    IMServiceGroupNotificationMessage
 };
 
 @protocol IMServiceReceiverMessageDelegate <NSObject>
@@ -25,21 +28,6 @@ typedef NS_ENUM(NSUInteger, IMServiceMessageType) {
 - (void)onReceivedMessage:(RCMessage *)message
                      type:(IMServiceMessageType)type
                      left:(int)left;
-
-//收到命令消息
-- (void)onReceivedCommandMessage:(RCMessage *)message
-                         content:(RCCommandMessage *)content
-                            left:(int)left;
-
-//收到好友请求消息
-- (void)onReceivedContactNotificationMessage:(RCMessage *)message
-                                     content:(RCContactNotificationMessage *)content
-                                        left:(int)left;
-
-//收到群组通知消息
-- (void)onReceivedGroupNotificationMessage:(RCMessage *)message
-                                   content:(RCGroupNotificationMessage *)content
-                                      left:(int)left;
 
 //收到消息撤回
 - (void)onReceivedRecalledMessage:(RCMessage *)message
@@ -111,7 +99,11 @@ typedef NS_ENUM(NSUInteger, IMServiceMessageType) {
 
 @interface IMServiceReceiver : NSObject <RCIMClientReceiveMessageDelegate, RCTypingStatusDelegate, RCConnectionStatusChangeDelegate>
 
-- (void)setMessageDelegate:(id<IMServiceReceiverMessageDelegate>)delegate forKey:(NSString *)target;
+- (void)addMessageDelegate:(id<IMServiceReceiverMessageDelegate>)delegate forTargetId:(NSString *)targetId delegateQueue:(dispatch_queue_t)delegateQueue;
+
+- (void)removeMessageDelegate:(NSString *)targetId;
+
+- (void)removeAllDelegate;
 
 - (void)setConnectionStatusDelegate:(id<IMServiceConnectDelegate>)delegate;
 

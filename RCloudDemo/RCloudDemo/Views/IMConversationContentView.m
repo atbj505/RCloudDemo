@@ -12,4 +12,7 @@
 @implementation IMConversationContentView
 
 
+- (void)setContent:(RCMessageContent *)content {
+}
+
 @end

@@ -82,6 +82,7 @@
     _message = message;
     self.nameLabel.text = _message.content.senderUserInfo.name;
     [self.avatar sd_setImageWithURL:[NSURL URLWithString:_message.content.senderUserInfo.portraitUri]];
+    self.messageContentView.content = _message.content;
     [self updateConstraintsIfNeeded];
 }
 

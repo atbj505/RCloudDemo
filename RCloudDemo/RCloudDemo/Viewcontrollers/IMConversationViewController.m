@@ -36,6 +36,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+
     [self sync];
 }
 
@@ -44,9 +45,15 @@
 
     [self sync];
 
-    [[IMService sharedIMService].receiver setMessageDelegate:self forKey:self.conversation.targetId];
+    [[IMService sharedIMService].receiver addMessageDelegate:self forTargetId:self.conversation.targetId delegateQueue:dispatch_get_main_queue()];
 
     [self.view addSubview:self.tableView];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    self.dataArray = [[[IMService sharedIMService] getLatestMessages:self.conversation.conversationType targetId:self.conversation.targetId] mutableCopy];
 }
 
 - (void)sync {
@@ -58,7 +65,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    self.dataArray = [[[IMService sharedIMService] getLatestMessages:self.conversation.conversationType targetId:self.conversation.targetId] mutableCopy];
     return self.dataArray.count;
 }
 
@@ -73,7 +79,7 @@
 - (void)onReceivedMessage:(RCMessage *)message type:(IMServiceMessageType)type left:(int)left {
 }
 
-#pragma marl - IMServiceConnectDelegate
+#pragma mark - IMServiceConnectDelegate
 - (void)onConnectStatusChanged:(RCConnectionStatus)status {
 }
 
